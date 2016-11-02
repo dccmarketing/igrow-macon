@@ -1,0 +1,336 @@
+/**
+ * Tablet menus. Apply the root class to the body tag.
+ */
+
+$bg__tablet-menu: $med;
+
+.close-tablet-menu-btn {
+	@include resetbutton();
+	padding	: .5em 1em;
+	width 	: 100%;
+
+	&:focus,
+	&:active {
+		box-shadow	: inset 0 0 5px $dark;
+		outline 	: none;
+	}
+	
+	@media only screen and (min-width: $bp__menu-button + 1) {
+		display: none;
+	}
+}
+
+.close-btn-text {
+	pointer-events: none;
+
+	&:before,
+	&:after {
+		border 	: 5px solid transparent;
+		content : '';
+	}
+}
+
+/**
+ * Slide on top of content from left
+ */
+.tablet-slide-ontop-from-left {
+	.primary-menu-items-0 {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			display 		: block;
+			height 			: 100%;
+			left 			: 0;
+			overflow 		: auto;
+			position 		: fixed;
+			top 			: 0;
+			transform 		: translateX( -$size__menu_width);
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+
+			&[aria-expanded="true"] {
+				transform 	: translateX(0);
+			}
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+				padding-top: $size__wp-admin-bar-1;
+			}
+
+			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+				padding-top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+	.close-btn-text {
+		&:before {
+			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+				border-right-color	: $dark;
+				display 			: inline-block;
+				margin-right		: 0.5em;
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			position 		: absolute;
+			right 			: 0;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Slide on top of content from right
+ */
+.tablet-slide-ontop-from-right {
+	.primary-menu-items-0 {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			display 		: block;
+			height 			: 100%;
+			right 			: 0;
+			overflow 		: auto;
+			position 		: fixed;
+			top 			: 0;
+			transform 		: translateX( $size__menu_width);
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+
+			&[aria-expanded="true"] {
+				transform 	: translateX(0);
+			}
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+				padding-top: $size__wp-admin-bar-1;
+			}
+
+			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+				padding-top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+	.close-btn-text {
+		&:after {
+			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+				border-left-color	: $dark;
+				display 			: inline-block;
+				margin-left			: 0.5em;
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			position 		: absolute;
+			left 			: 0;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Slide on top of content from top.
+ */
+.tablet-slide-ontop-from-top {
+	.primary-menu-items-0 {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			background-color: $bg__tablet-menu;
+			display 		: block;
+			height 			: $size__menu_height;
+			left 			: 0;
+			overflow 		: auto;
+			position 		: absolute;
+			right 			: 0;
+			top 			: 0;
+			transform 		: translateY( -$size__menu_height);
+			transition 		: transform 0.4s ease;
+			width 			: 100%;
+			z-index 		: 9999;
+
+			&[aria-expanded="true"] {
+				transform 	: translateY(0);
+			}
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+				padding-top: $size__wp-admin-bar-1;
+			}
+
+			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+				padding-top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			position 		: absolute;
+			right 			: 0;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Slide on top of content from bottom.
+ */
+.tablet-slide-ontop-from-bottom {
+	.primary-menu-items-0 {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			display 		: block;
+			height 			: $size__menu_height;
+			left 			: 0;
+			overflow 		: auto;
+			position 		: absolute;
+			right 			: 0;
+			transform 		: translateY( $size__menu_height);
+			transition 		: transform 0.4s ease;
+			width 			: 100%;
+			z-index 		: 9999;
+
+			&[aria-expanded="true"] {
+				transform 	: translateY(0);
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			position 		: absolute;
+			right 			: 0;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Pushes content aside from left.
+ */
+.tablet-push-from-left {
+
+	&.tablet-menu-open {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			transform: translateX( $size__menu_width );
+
+			.menu-primary-toggle {
+				transform: translateX(-$size__menu_width);
+			}
+		}
+	}
+
+	.primary-menu-items-0 {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			height 			: 100%;
+			left 			: 0;
+			overflow 		: auto;
+			position 		: fixed;
+			top 			: 0;
+			transform 		: translateX( -$size__menu_width);
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+				top: $size__wp-admin-bar-1;
+			}
+
+			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+				top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			position 		: absolute;
+			right 			: 0;
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Pushes content aside from right.
+ */
+.tablet-push-from-right {
+
+	&.tablet-menu-open {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			transform: translate( -$size__menu_width );
+
+			.menu-primary-toggle {
+				transform: translateX($size__menu_width);
+			}
+		}
+	}
+
+	.primary-menu-items-0 {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			height 			: 100%;
+			right 			: 0;
+			overflow 		: auto;
+			position 		: fixed;
+			top 			: 0;
+			transform 		: translateX( $size__menu_width );
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+				top: $size__wp-admin-bar-1;
+			}
+
+			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+				top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+
+	.menu-primary-toggle {
+		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			position 		: absolute;
+			left 			: 0;
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+}

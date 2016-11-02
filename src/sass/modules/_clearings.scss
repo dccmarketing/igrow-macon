@@ -1,0 +1,22 @@
+.clear:before,
+.clear:after {
+	@include clearfix();
+}
+
+.clear:after {
+	@include clearfix-after();
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: right;
+}
+
+.float-left:after,
+.float-right:after {
+	@include clearfix();
+	@include clearfix-after();
+}
