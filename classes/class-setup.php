@@ -140,18 +140,11 @@ class iGrow_Macon_Setup {
 
 		wp_enqueue_style( 'igrowmacon-style', get_stylesheet_uri() );
 
-		$faver 	= wp_remote_get( 'http://api.jsdelivr.com/v1/bootstrap/libraries/font-awesome' );
-		$json 	= json_decode( $faver['body'], TRUE );
-
-		wp_enqueue_style( 'fontawesome', '//opensource.keycdn.com/fontawesome/' . $json[0]['lastversion'] . '/font-awesome.min.css' );
-
-
-
-		wp_enqueue_script( 'enquire', '//cdnjs.cloudflare.com/ajax/libs/enquire.js/2.1.2/enquire.min.js', array(), PARENT_THEME_VERSION, true );
+		//wp_enqueue_script( 'enquire', '//cdnjs.cloudflare.com/ajax/libs/enquire.js/2.1.2/enquire.min.js', array(), PARENT_THEME_VERSION, true );
 
 		wp_enqueue_script( 'igrowmacon-libs', get_stylesheet_directory_uri() . '/assets/js/lib.min.js', array(), PARENT_THEME_VERSION, true );
 
-		wp_enqueue_script( 'igrowmacon-public', get_stylesheet_directory_uri() . '/assets/js/public.min.js', array( 'jquery', 'enquire', 'igrowmacon-libs' ), PARENT_THEME_VERSION, true );
+		wp_enqueue_script( 'igrowmacon-public', get_stylesheet_directory_uri() . '/assets/js/public.min.js', array( 'jquery', /*'enquire', */'igrowmacon-libs' ), PARENT_THEME_VERSION, true );
 
 		// wp_enqueue_style( 'igrowmacon-fonts', $this->fonts_url(), array(), null );
 
@@ -216,7 +209,8 @@ class iGrow_Macon_Setup {
 
 		register_nav_menus( array(
 			'primary' 		=> esc_html__( 'Primary', 'igrow-macon' ),
-			'social' 		=> esc_html__( 'Social', 'igrow-macon' )
+			'social' 		=> esc_html__( 'Social', 'igrow-macon' ),
+			'toggles' 		=> esc_html__( 'Toggles', 'igrow-macon' )
 		) );
 
 	} // register_menus()
@@ -272,17 +266,17 @@ class iGrow_Macon_Setup {
 		 *
 		 * @see 		https://developer.wordpress.org/themes/functionality/post-formats/
 		 */
-		add_theme_support( 'post-formats', array(
-			'aside',
-			'audio',
-			'chat',
-			'gallery',
-			'image',
-			'link',
-			'quote',
-			'status',
-			'video',
-		) );
+		// add_theme_support( 'post-formats', array(
+		// 	'aside',
+		// 	'audio',
+		// 	'chat',
+		// 	'gallery',
+		// 	'image',
+		// 	'link',
+		// 	'quote',
+		// 	'status',
+		// 	'video',
+		// ) );
 
 		/**
 		 * Set up the WordPress core custom logo feature.

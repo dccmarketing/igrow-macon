@@ -32,9 +32,9 @@ require get_stylesheet_directory() . '/functions/imagekit.php';
 require get_stylesheet_directory() . '/functions/themekit.php';
 
 /**
- * Load Main Menu Walker.
+ * Load Menu Walker.
  */
-require get_stylesheet_directory() . '/classes/main-menu-walker.php';
+require get_stylesheet_directory() . '/classes/menu-walker.php';
 
 /**
  * Load Autoloader
@@ -45,17 +45,12 @@ require get_stylesheet_directory() . '/classes/class-autoloader.php';
 /**
  * Create an instance of each class and load the hooks function.
  */
-$classes[] = 'Authorbox';
-$classes[] = 'Automattic';
+//$classes[] = 'Authorbox';
+//$classes[] = 'Automattic';
 $classes[] = 'Customizer';
 $classes[] = 'Editor';
 $classes[] = 'Hidden_Search';
 $classes[] = 'Menukit';
-$classes[] = 'Metabox_Demo';
-// $classes[] = 'Metabox_Full_Repeater';
-// $classes[] = 'Metabox_Post_Format';
-// $classes[] = 'Metabox_Simple_Repeater';
-$classes[] = 'Metabox_Subtitle';
 $classes[] = 'Setup';
 $classes[] = 'Shortcode_Listmenu';
 $classes[] = 'Shortcode_Search';

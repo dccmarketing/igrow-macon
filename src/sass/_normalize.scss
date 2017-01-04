@@ -46,11 +46,11 @@ template ,
 
 a {
 	background-color: transparent;
-}
-
-a:active,
-a:hover {
-	outline-width: 0;
+	
+	&:active,
+	&:hover {
+		outline-width: 0;		
+	}
 }
 
 abbr[title] {

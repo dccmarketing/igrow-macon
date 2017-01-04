@@ -52,7 +52,7 @@ do_action( 'igrowmacon_html_before' );
 		 */
 		do_action( 'igrowmacon_header_before' );
 
-		?><header role="banner"><?php
+		?><header class="site-header" role="banner"><?php
 
 			/**
 			 * The igrowmacon_header_top action hook

@@ -16,7 +16,7 @@ class iGrow_Macon_Soliloquy {
 	 */
 	public function hooks() {
 
-		add_action( 'soliloquy_tab_slider', array( $soliloquy_hooks, 'add_notes' ), 9 );
+		add_action( 'soliloquy_tab_slider', array( $this, 'add_notes' ), 9 );
 
 	} // hooks()
 

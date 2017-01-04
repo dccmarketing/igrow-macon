@@ -14,9 +14,4 @@ a {
 		color 			: $color__link-hover;
 		outline-color 	: $color__outline;
 	}
-
-	&:not([href]) {
-		color: $color__link;
-	}
-
 }

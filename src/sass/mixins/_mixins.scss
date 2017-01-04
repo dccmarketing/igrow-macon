@@ -1,4 +1,5 @@
-@import "mixins-master";
-@import "mixins-dcc";
-@import "mixins-theme";
-@import "mixins-tablet-menus";
+@import "breakpoints";
+@import "master";
+@import "dcc";
+@import "theme";
+@import "tablet-menus";

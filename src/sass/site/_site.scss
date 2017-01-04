@@ -1,5 +1,6 @@
 @import "site/global/header";
 @import "site/global/footer";
+@import "site/global/b2b";
 
 @import "site/primary/asides";
 @import "site/primary/comments";
@@ -8,7 +9,3 @@
 @import "site/primary/posts-and-pages";
 
 @import "site/secondary/widgets";
-
-.wrap {
-	@include centermax();
-}

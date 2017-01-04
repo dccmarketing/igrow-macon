@@ -3,6 +3,11 @@
 	display: none;
 }
 
-.comments-link {
+.comments-link,
+.cat-links {
 	margin-right: 1em;
+}
+
+.entry-footer {
+	margin-bottom: $size__default-bot-marg;
 }

@@ -1,15 +1,25 @@
-[role="contentinfo"] {
-	width 		: 100%;
+.site-footer {
+	background-color: $orange;
+	color 			: $light;
+	width 			: 100%;
+	
+	a {
+		color: $light;
+	}
+	
+	.page-template-page_B2B & {
+		background-color: $teal;
+	}
 }
 
 .wrap-footer {
+	@include centermax( 1em );
 	overflow 	: auto;
-	padding 	: 1em;
-
 }
 
 .site-info {
 	overflow 	: auto;
-	text-align: center;
+	padding 	: 1em;
+	text-align	: center;
 	width 		: 100%;
 }

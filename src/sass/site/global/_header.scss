@@ -1,19 +1,43 @@
-[role="banner"]{
+.site-header {
 	// DO NOT ADD PADDING HERE! - it screws up menus
-	margin-bottom	: $size__default-bot-marg;
+	background-color: $cream;
 	overflow 		: auto;
+	//padding-bottom	: $size__default-bot-marg;
 
-	@media only screen and (min-width: $bp__sidemenu + 1) {
+	@include tablet-portrait-up {
 		overflow 	: visible;
 	}
 }
 
+.wrap-header {
+	@include centermax();
+	
+	align-items 	: center;
+	display 		: flex;
+	justify-content : space-between;
+	
+	@include phone-down {
+		flex-wrap: wrap;
+	}
+	
+	@include tablet-down {
+		padding-left	: 1em;
+		padding-right	: 1em;
+	}
+}
+
 .site-branding {
-	margin		: 0 auto;
+	
+	@include phone-down {
+		margin	: 0 auto;
+		order	: 2;
+	}
 }
 
 .site-title {
-	text-align: center;
+	margin		: 0;
+	padding-top : 0.5em;
+	text-align	: center;
 }
 
 .site-title-link {
@@ -23,4 +47,40 @@
 
 .site-description {
 	text-align: center;
+}
+
+.custom-logo-link {
+	display: block;
+}
+
+.contact-bar {
+	align-items: center;
+	background-color: $teal;
+	color 			: $light;
+	display 		: flex;
+	justify-content : center;
+	
+	@include tablet-to-laptop {
+		justify-content : flex-end;
+	}
+	
+	.page-template-page_B2B & {
+		background-color: $orange;
+	}
+}
+
+.btn-phone {
+	@include phone-down {
+		display: none;
+	}
+	
+	font-size 		: 1.25em;
+}
+
+.featured-image {
+	background-position	: center center;
+	background-repeat	: no-repeat;
+	background-size		: cover;
+	border-bottom 		: 5px solid $orange;
+	height 				: 250px;
 }

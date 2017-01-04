@@ -7,7 +7,7 @@
  * @package iGrow_Macon
  */
 
-?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>><?php
+?><article id="post-<?php the_ID(); ?>" <?php post_class( 'stripes' ); ?>><?php
 
 	/**
 	 * The igrowmacon_entry_top action hook.

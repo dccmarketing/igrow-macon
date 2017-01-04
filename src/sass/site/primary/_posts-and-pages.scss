@@ -2,14 +2,15 @@
 	display: block;
 }
 
-.hentry {
-	margin: 0 0 1.5em;
+.type-post,
+.type-page {
+	margin-bottom: $size__default-bot-marg * 2;
 }
 
 .page-content,
 .entry-content,
 .entry-summary {
-	margin 		: 1.5em 0 0;
+	margin 		: 0;
 }
 
 .page-links {
@@ -17,31 +18,52 @@
 }
 
 .site-content {
-	overflow 	: auto;
-	width 		: 100%;
+	margin-bottom	: $size__default-bot-marg;
+	overflow 		: auto;
+	width 			: 100%;
 
 	@include centermax();
-
-	margin-bottom: $size__default-bot-marg;
 }
 
 .content-area {
 	display 	: flex;
 	overflow 	: auto;
 	padding 	: 1em;
+	padding-top : 0;
 	width 		: 100%;
+	
+	@include tablet-down {
+		flex-wrap: wrap;
+	}
 }
 
-[role="main"] {
-	@media only screen and (min-width: $bp__tablet) {
+.site-main {
+	width: 100%;
+	
+	@include tablet-landscape-up {
 		.content-sidebar & {
-			margin 	: 0 2.5% 0 0;
-			width 	: 70%;
+			margin-right: 2.5%;
+			width 		: 70%;
 		}
 
 		.sidebar-content & {
-			margin 	: 0 0 0 2.5%;
-			width 	: 70%;
+			margin-left : 2.5%;
+			width 		: 70%;
 		}
 	}
+}
+
+.page-title {
+	color			: $darkteal;
+	text-transform	: lowercase;
+	
+	.page-template-page_B2B & {
+		color: $orange;
+	}
+}
+
+.entry-title,
+.entry-title-link,
+.widget-title {
+	text-transform	: lowercase;
 }

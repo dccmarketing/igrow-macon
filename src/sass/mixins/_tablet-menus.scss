@@ -2,7 +2,7 @@
  * Tablet menu - slide in from left - on top of content
  */
 @mixin slide-ontop-from-left( $menu-width ) {
-	@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+	@include tablet-to-laptop {
 		.primary-menu-items-0 {
 			background-color: $dark;
 			bottom 			: 0;
@@ -37,7 +37,7 @@
  * Tablet menu - slide in from right - on top of content
  */
 @mixin slide-ontop-from-right( $menu-width ) {
-	@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+	@include tablet-to-laptop {
 		.primary-menu-items-0 {
 			background-color: $dark;
 			bottom 			: 0;
@@ -69,7 +69,7 @@
 }
 
 @mixin push-from-left( $menu-width ) {
-	@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+	@include tablet-to-laptop {
 		.primary-menu-items-0 {
 			background-color: $dark;
 			bottom 			: 0;
@@ -106,7 +106,7 @@
  * Tablet menu - pushes content aside from right
  */
 @mixin push-from-right( $menu-width ) {
-	@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+	@include tablet-to-laptop {
 		.primary-menu-items-0 {
 			background-color: $dark;
 			bottom 			: 0;

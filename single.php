@@ -9,14 +9,14 @@
 
 get_header();
 
-?><div id="primary" class="content-area"><?php
+?><div id="primary" class="content-area content-sidebar"><?php
 
 	/**
 	 * The igrowmacon_main_before action hook.
 	 */
 	do_action( 'igrowmacon_main_before' );
 
-	?><main id="main" role="main"><?php
+	?><main class="site-main" id="main" role="main"><?php
 
 	/**
 	 * The igrowmacon_while_before action hook

@@ -1,0 +1,70 @@
+.wpbdp-listing {
+	a {
+		border-bottom	: none !important;
+		color			: $red !important;
+	}
+
+	.listing-actions {
+		display: none !important;
+	}
+	
+	.listing-details {
+		margin-left: 0 !important;
+	}
+	
+	.listing-title {
+		border-bottom-color: $orange !important;
+		
+		a,
+		h2 {
+			border-bottom	: none;
+			color			: $red !important;
+		}
+	}
+}
+
+.wpbdp-main-box {
+	background: $cream !important;
+	
+	[type="submit"],
+	[type=button] {
+		@include resetbutton( $light );
+		
+		background	: $orange !important;
+		border-color: $light !important;
+		color 		: $light !important;
+		padding 	: .6em 1em .4em;
+	}
+}
+
+.wpbdp-listing-excerpt {
+	&.odd {
+		background: $cream !important;
+	}
+}	
+
+.page-template-page_B2B {
+	.wpbdp-main-box {
+		background: $teal !important;
+		
+		[type="submit"],
+		[type=button] {
+			@include resetbutton( $light );
+			
+			background	: $cream !important;
+			border-color: $red !important;
+			color 		: $red !important;
+			padding 	: .6em 1em .4em;
+		}
+	}
+	
+	.advanced-search-link {
+		color: $cream;
+	}
+
+	.wpbdp-listing-excerpt {
+		&.odd {
+			background: $teal !important;
+		}
+	}	
+}

@@ -2,21 +2,22 @@
  * Tablet menus. Apply the root class to the body tag.
  */
 
-$bg__tablet-menu: $med;
+$bg__tablet-menu: $cream;
 
 .close-tablet-menu-btn {
 	@include resetbutton();
-	padding	: .5em 1em;
-	width 	: 100%;
+	display 	: none;
+	padding		: .5em 1em;
+	width 		: 100%;
+	
+	@include tablet-to-laptop {
+		display: block;
+	}
 
 	&:focus,
 	&:active {
 		box-shadow	: inset 0 0 5px $dark;
 		outline 	: none;
-	}
-	
-	@media only screen and (min-width: $bp__menu-button + 1) {
-		display: none;
 	}
 }
 
@@ -35,7 +36,7 @@ $bg__tablet-menu: $med;
  */
 .tablet-slide-ontop-from-left {
 	.primary-menu-items-0 {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
 			background-color: $bg__tablet-menu;
 			bottom 			: 0;
 			display 		: block;
@@ -57,11 +58,11 @@ $bg__tablet-menu: $med;
 
 	&.admin-bar {
 		.primary-menu-items-0 {
-			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+			@include tablet-to-adminbar {
 				padding-top: $size__wp-admin-bar-1;
 			}
 
-			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+			@include adminbar-to-laptop {
 				padding-top: $size__wp-admin-bar-2;
 			}
 		}
@@ -69,7 +70,7 @@ $bg__tablet-menu: $med;
 
 	.close-btn-text {
 		&:before {
-			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			@include tablet-to-laptop {
 				border-right-color	: $dark;
 				display 			: inline-block;
 				margin-right		: 0.5em;
@@ -78,10 +79,11 @@ $bg__tablet-menu: $med;
 	}
 
 	.menu-primary-toggle {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
 			position 		: absolute;
 			right 			: 0;
-			width 			: $size__menu_width;
+			width 			: $size__tablet-toggle-width;
 			z-index 		: 9999;
 		}
 	}
@@ -92,7 +94,7 @@ $bg__tablet-menu: $med;
  */
 .tablet-slide-ontop-from-right {
 	.primary-menu-items-0 {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
 			background-color: $bg__tablet-menu;
 			bottom 			: 0;
 			display 		: block;
@@ -114,11 +116,11 @@ $bg__tablet-menu: $med;
 
 	&.admin-bar {
 		.primary-menu-items-0 {
-			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+			@include tablet-to-adminbar {
 				padding-top: $size__wp-admin-bar-1;
 			}
 
-			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+			@include adminbar-to-laptop {
 				padding-top: $size__wp-admin-bar-2;
 			}
 		}
@@ -126,7 +128,7 @@ $bg__tablet-menu: $med;
 
 	.close-btn-text {
 		&:after {
-			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+			@include tablet-to-laptop {
 				border-left-color	: $dark;
 				display 			: inline-block;
 				margin-left			: 0.5em;
@@ -135,10 +137,11 @@ $bg__tablet-menu: $med;
 	}
 
 	.menu-primary-toggle {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
 			position 		: absolute;
 			left 			: 0;
-			width 			: $size__menu_width;
+			width 			: $size__tablet-toggle-width;
 			z-index 		: 9999;
 		}
 	}
@@ -149,7 +152,7 @@ $bg__tablet-menu: $med;
  */
 .tablet-slide-ontop-from-top {
 	.primary-menu-items-0 {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
 			background-color: $bg__tablet-menu;
 			display 		: block;
 			height 			: $size__menu_height;
@@ -171,21 +174,22 @@ $bg__tablet-menu: $med;
 
 	&.admin-bar {
 		.primary-menu-items-0 {
-			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+			@include tablet-to-adminbar {
 				padding-top: $size__wp-admin-bar-1;
 			}
 
-			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+			@include adminbar-to-laptop {
 				padding-top: $size__wp-admin-bar-2;
 			}
 		}
 	}
 
 	.menu-primary-toggle {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
 			position 		: absolute;
 			right 			: 0;
-			width 			: $size__menu_width;
+			width 			: $size__tablet-toggle-width;
 			z-index 		: 9999;
 		}
 	}
@@ -196,7 +200,7 @@ $bg__tablet-menu: $med;
  */
 .tablet-slide-ontop-from-bottom {
 	.primary-menu-items-0 {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
 			background-color: $bg__tablet-menu;
 			bottom 			: 0;
 			display 		: block;
@@ -217,10 +221,11 @@ $bg__tablet-menu: $med;
 	}
 
 	.menu-primary-toggle {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
 			position 		: absolute;
 			right 			: 0;
-			width 			: $size__menu_width;
+			width 			: $size__tablet-toggle-width;
 			z-index 		: 9999;
 		}
 	}
@@ -232,7 +237,7 @@ $bg__tablet-menu: $med;
 .tablet-push-from-left {
 
 	&.tablet-menu-open {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
 			transform: translateX( $size__menu_width );
 
 			.menu-primary-toggle {
@@ -242,7 +247,7 @@ $bg__tablet-menu: $med;
 	}
 
 	.primary-menu-items-0 {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
 			background-color: $bg__tablet-menu;
 			bottom 			: 0;
 			height 			: 100%;
@@ -259,22 +264,23 @@ $bg__tablet-menu: $med;
 
 	&.admin-bar {
 		.primary-menu-items-0 {
-			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+			@include tablet-to-adminbar {
 				top: $size__wp-admin-bar-1;
 			}
 
-			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+			@include adminbar-to-laptop {
 				top: $size__wp-admin-bar-2;
 			}
 		}
 	}
 
 	.menu-primary-toggle {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
 			position 		: absolute;
 			right 			: 0;
 			transition 		: transform 0.4s ease;
-			width 			: $size__menu_width;
+			width 			: $size__tablet-toggle-width;
 			z-index 		: 9999;
 		}
 	}
@@ -286,7 +292,7 @@ $bg__tablet-menu: $med;
 .tablet-push-from-right {
 
 	&.tablet-menu-open {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
 			transform: translate( -$size__menu_width );
 
 			.menu-primary-toggle {
@@ -296,7 +302,7 @@ $bg__tablet-menu: $med;
 	}
 
 	.primary-menu-items-0 {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
 			background-color: $bg__tablet-menu;
 			bottom 			: 0;
 			height 			: 100%;
@@ -313,11 +319,11 @@ $bg__tablet-menu: $med;
 
 	&.admin-bar {
 		.primary-menu-items-0 {
-			@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__admin-bar-1) {
+			@include tablet-to-adminbar {
 				top: $size__wp-admin-bar-1;
 			}
 
-			@media only screen and (min-width: $bp__admin-bar-1 + 1) and (max-width: $bp__menu-button) {
+			@include adminbar-to-laptop {
 				top: $size__wp-admin-bar-2;
 			}
 		}
@@ -325,11 +331,12 @@ $bg__tablet-menu: $med;
 
 
 	.menu-primary-toggle {
-		@media only screen and (min-width: $bp__sidemenu) and (max-width: $bp__menu-button) {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
 			position 		: absolute;
 			left 			: 0;
 			transition 		: transform 0.4s ease;
-			width 			: $size__menu_width;
+			width 			: $size__tablet-toggle-width;
 			z-index 		: 9999;
 		}
 	}

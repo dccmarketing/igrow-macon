@@ -1,0 +1,59 @@
+/**
+ * Menu Items
+ */
+.primary-menu-item,
+.b2b-main-menu-item { // Every menu item
+	position 	: relative;
+	
+	@include laptop-up {
+		margin-bottom: 1em;
+	}
+
+	&:hover,
+	&.focus {
+
+		> ul {
+			@include tablet-portrait-up {
+				left 		: auto;
+				opacity 	: 1;
+				visibility 	: visible;
+			}
+		}
+		
+		> a {
+			color: $darkorange;
+		}
+
+	}
+}
+
+.primary-menu-item-has-children,
+.b2b-main-menu-item-has-children {
+	@include phone-down {
+		border-bottom 	: 3px solid $teal;
+	}
+}
+
+.primary-menu-item-1,
+.b2b-main-menu-item-1 { // 2nd-level menu item, first submenu
+	display 	: block;
+	text-align 	: left;
+
+	&:last-child { // Last child of the 2nd-level submenu and below.
+
+		@include phone-down {
+			padding-bottom: 0;
+		}
+	}
+
+	&:hover,
+	&.focus {
+
+		> ul {
+			@include tablet-portrait-up {
+				left 	: 100%;
+				top 	: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,113 @@
+.igrow-coins {
+	background-color: $light;
+	border-bottom	: 5px solid $teal;
+	border-top		: 5px solid $teal;
+	display 		: none;
+	
+	@include laptop-up {
+		display: block;
+	}
+	
+	.page-template-page_B2B & {
+		background-color	: $ltyellow;
+		border-bottom-color	: $orange;
+		border-top-color	: $orange;
+	}
+}
+
+.coin-list {
+	@include resetlist();
+	display 		: flex;
+	justify-content : center;
+	margin 			: 0 auto;
+	padding 		: 1em;
+	
+	@include tablet-down {
+		flex-wrap: wrap;
+		max-width: 500px;
+	}
+	
+}
+
+.single-coin {
+	border-radius 	: 50%;
+	border-style 	: solid;
+	border-width 	: 5px;
+	height 			: 150px;
+	perspective 	: 800px;
+	text-align 		: center;
+	width 			: 150px;
+	
+	&:hover {
+		.coin-wrap {
+			transform: rotate3d( 0, 1, 0, -180deg );
+		}
+	}
+	
+	$colors: $red, $orange, $yellow, $green, $teal, $red;
+
+	@for $i from 1 through 6 {
+		&:nth-child(#{$i}) {
+			//color 		: nth( $colors, $i );
+			border-color: nth( $colors, $i );
+
+			svg {
+				fill: nth( $colors, $i );
+			}
+		}
+	}
+	
+	.page-template-page_B2B & {
+		&:nth-child(3) {
+			//color 		: nth( $colors, $i );
+			border-color: $darkmed;
+
+			svg {
+				fill: $darkmed;
+			}
+		}
+	}
+}
+
+.coin-wrap {
+	border-radius 		: 50%;
+	height 				: 100%;
+	transform-style 	: preserve-3d;
+	transition 			: 0.4s ease;
+	width 				: 100%;
+}
+
+.coin-side {
+	border-radius 		: 50%;
+	backface-visibility : hidden;
+	height 				: 100%;
+	position 			: absolute;
+	width 				: 100%;
+}
+
+.coin-front {
+	z-index: 2;
+
+	svg {
+		height 		: 100px;
+		position 	: relative;
+		top 		: 50%;
+		transform 	: translateY(-50%);
+		transition 	: 0.4s ease;
+		width 		: 100px;
+	}
+}
+
+.coin-back {
+	transform: rotate3d( 0, 1, 0, 180deg);
+}
+
+.coin-text {
+	display 	: block;
+	font-size 	: 14px;
+	margin 		: 0 auto;
+	position 	: relative;
+	top 		: 50%;
+	transform 	: translateY(-50%);
+	width 		: 80%;
+}

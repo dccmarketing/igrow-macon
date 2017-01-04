@@ -18,7 +18,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'text', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'text', $atts, $props );
 $field->display_field();
 
 unset( $atts );

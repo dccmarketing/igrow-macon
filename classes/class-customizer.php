@@ -24,8 +24,8 @@ class iGrow_Macon_Customizer {
 		add_action( 'customize_register', 	array( $this, 'register_panels' ) );
 		add_action( 'customize_register', 	array( $this, 'register_sections' ) );
 		add_action( 'customize_register', 	array( $this, 'register_fields' ) );
-		add_action( 'wp_head', 				array( $this, 'header_output' ) );
-		add_action( 'customize_register', 	array( $this, 'load_customize_controls' ), 0 );
+		//add_action( 'wp_head', 				array( $this, 'header_output' ) );
+		//add_action( 'customize_register', 	array( $this, 'load_customize_controls' ), 0 );
 
 	} // hooks()
 
@@ -78,6 +78,32 @@ class iGrow_Macon_Customizer {
 				'priority'  		=> 10,
 				'theme_supports'  	=> '',
 				'title'  			=> esc_html__( 'Tablet Menu Style', 'igrow-macon' ),
+			)
+		);
+		
+		// Contact Info Section
+		$wp_customize->add_section( 'contact_info',
+			array(
+				'active_callback' 	=> '',
+				'capability'  		=> 'edit_theme_options',
+				'description'  		=> esc_html__( '', 'igrow-macon' ),
+				'panel' 			=> '',
+				'priority'  		=> 70,
+				'theme_supports'  	=> '',
+				'title'  			=> esc_html__( 'Contact Info', 'igrow-macon' ),
+			)
+		);
+		
+		// Theme Settings Section
+		$wp_customize->add_section( 'theme_settings',
+			array(
+				'active_callback' 	=> '',
+				'capability'  		=> 'edit_theme_options',
+				'description'  		=> esc_html__( '', 'igrow-macon' ),
+				'panel' 			=> '',
+				'priority'  		=> 70,
+				'theme_supports'  	=> '',
+				'title'  			=> esc_html__( 'Theme Settings', 'igrow-macon' ),
 			)
 		);
 
@@ -163,6 +189,187 @@ class iGrow_Macon_Customizer {
 			)
 		);
 		$wp_customize->get_setting( 'tablet_menu' )->transport = 'postMessage';
+		
+		
+		
+		// Contact Info Fields
+		// Address Field
+		$wp_customize->add_setting(
+			'contact_address',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'default'  			=> '',
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport' 		=> 'postMessage',
+				'type' 				=> 'theme_mod'
+			)
+		);
+		$wp_customize->add_control(
+			'contact_address',
+			array(
+				'active_callback' 	=> '',
+				'description' 		=> esc_html__( '', 'igrow-macon' ),
+				'label'  			=> esc_html__( 'Address', 'igrow-macon' ),
+				'priority' 			=> 10,
+				'section'  			=> 'contact_info',
+				'settings' 			=> 'contact_address',
+				'type' 				=> 'text'
+			)
+		);
+		$wp_customize->get_setting( 'contact_address' )->transport = 'postMessage';
+		
+		// Phone Number Field
+		$wp_customize->add_setting(
+			'contact_phone',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'default'  			=> '',
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport' 		=> 'postMessage',
+				'type' 				=> 'theme_mod'
+			)
+		);
+		$wp_customize->add_control(
+			'contact_phone',
+			array(
+				'active_callback' 	=> '',
+				'description' 		=> esc_html__( '', 'igrow-macon' ),
+				'label'  			=> esc_html__( 'Phone Number', 'igrow-macon' ),
+				'priority' 			=> 10,
+				'section'  			=> 'contact_info',
+				'settings' 			=> 'contact_phone',
+				'type' 				=> 'text'
+			)
+		);
+		$wp_customize->get_setting( 'contact_phone' )->transport = 'postMessage';
+		
+		// Fax Number Field
+		$wp_customize->add_setting(
+			'contact_fax',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'default'  			=> '',
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport' 		=> 'postMessage',
+				'type' 				=> 'theme_mod'
+			)
+		);
+		$wp_customize->add_control(
+			'contact_fax',
+			array(
+				'active_callback' 	=> '',
+				'description' 		=> esc_html__( '', 'igrow-macon' ),
+				'label'  			=> esc_html__( 'Fax Number', 'igrow-macon' ),
+				'priority' 			=> 10,
+				'section'  			=> 'contact_info',
+				'settings' 			=> 'contact_fax',
+				'type' 				=> 'text'
+			)
+		);
+		$wp_customize->get_setting( 'contact_fax' )->transport = 'postMessage';
+		
+		// Email Address Field
+		$wp_customize->add_setting(
+			'contact_email',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'default'  			=> '',
+				'sanitize_callback' => 'sanitize_email',
+				'transport' 		=> 'postMessage',
+				'type' 				=> 'theme_mod'
+			)
+		);
+		$wp_customize->add_control(
+			'contact_email',
+			array(
+				'active_callback' 	=> '',
+				'description' 		=> esc_html__( '', 'igrow-macon' ),
+				'label'  			=> esc_html__( 'Email Address', 'igrow-macon' ),
+				'priority' 			=> 10,
+				'section'  			=> 'contact_info',
+				'settings' 			=> 'contact_email',
+				'type' 				=> 'email'
+			)
+		);
+		$wp_customize->get_setting( 'contact_email' )->transport = 'postMessage';
+		
+		
+		
+		// Call Button Text Field
+		$wp_customize->add_setting(
+			'btn_phone_text',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'default'  			=> '',
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport' 		=> 'postMessage',
+				'type' 				=> 'theme_mod'
+			)
+		);
+		$wp_customize->add_control(
+			'btn_phone_text',
+			array(
+				'active_callback' 	=> '',
+				'description' 		=> esc_html__( '', 'igrow-macon' ),
+				'label'  			=> esc_html__( 'Call Button Text', 'igrow-macon' ),
+				'priority' 			=> 10,
+				'section'  			=> 'theme_settings',
+				'settings' 			=> 'btn_phone_text',
+				'type' 				=> 'text'
+			)
+		);
+		$wp_customize->get_setting( 'btn_phone_text' )->transport = 'postMessage';
+		
+		// Hide Phone Number Field
+		$wp_customize->add_setting(
+			'hide_phone_number',
+			array(
+				'capability' 		=> 'edit_theme_options',
+				'default'  			=> '',
+				'sanitize_callback' => 'absint',
+				'transport' 		=> 'postMessage',
+				'type' 				=> 'theme_mod'
+			)
+		);
+		$wp_customize->add_control(
+			'hide_phone_number',
+			array(
+				'active_callback' 	=> '',
+				'description' 		=> esc_html__( 'Hides the phone number on the phone buttn and only displays the Call Button Text.', 'igrow-macon' ),
+				'label'  			=> esc_html__( 'Hide Phone Number', 'igrow-macon' ),
+				'priority' 			=> 10,
+				'section'  			=> 'theme_settings',
+				'settings' 			=> 'hide_phone_number',
+				'type' 				=> 'checkbox'
+			)
+		);
+		$wp_customize->get_setting( 'hide_phone_number' )->transport = 'postMessage';
+		
+		// Default Header Image Field
+		$wp_customize->add_setting(
+			'default_header_image' ,
+			array(
+				'capability' 			=> 'edit_theme_options',
+				'default'  				=> '',
+				'sanitize_callback' 	=> 'esc_url_raw',
+				'transport' 			=> 'postMessage',
+				'type' 					=> 'theme_mod'
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Image_Control(
+				$wp_customize,
+				'default_header_image',
+				array(
+					'active_callback' 	=> '',
+					'description' 		=> esc_html__( '', 'igrow-macon' ),
+					'label' 			=> esc_html__( 'Default Header Image', 'igrow-macon' ),
+					'priority' 			=> 10,
+					'section' 			=> 'theme_settings',
+					'settings' 			=> 'default_header_image'
+				)
+			)
+		);
 
 
 

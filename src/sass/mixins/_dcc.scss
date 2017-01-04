@@ -10,7 +10,7 @@
 
 		#{$prop}: $size__wp-admin-bar-1 + $size;
 
-		@media only screen and (min-width: $bp__admin-bar-1) {
+		@include adminbar-up {
 			#{$prop}: $size__wp-admin-bar-2 + $size;
 		}
 	}
@@ -240,22 +240,29 @@
 	border-bottom-left-radius			: $botleft;
 }
 
-@mixin resetbutton() {
+@mixin resetbutton( $bgcolor: transparent, $bghover: inherit, $hovercolor: inherit ) {
+	background 		: $bgcolor;
 	border 			: none;
-	box-shadow 		: none;
-	text-shadow 	: none;
-	font-size 		: 1em;
 	border-radius 	: 0;
-	background 		: transparent;
+	box-shadow 		: none;
+	font-size 		: 1em;
 	padding 		: 0;
+	text-shadow 	: none;
 
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: inherit;
+		background-color: $bghover;
 		border-color 	: inherit;
-		color 			: inherit;
+		color 			: $hovercolor;
 	}
+}
+
+@mixin resetfieldset() {
+	background-color: transparent;
+	border 			: none;
+	margin 			: 0;
+	padding 		: 0;
 }
 
 @mixin resetlist() {

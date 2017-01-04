@@ -1,19 +1,24 @@
 .widget-area {
 	overflow 	: auto;
-	padding 	: 1em;
+	padding-top : $size__default-bot-marg;
 	width 		: 100%;
 
-	@media only screen and (min-width: $bp__tablet) {
-		width: 27.5%;
+	@include tablet-landscape-up {
 
-		.sidebar-content & {
-			margin 	: 0 0 0 2.5%;
+		.sidebar-content &,
+		.content-sidebar & {
+			width		: 27.5%;
 		}
 	}
 }
 
 .widget {
-	margin: 0 0 1.5em;
+	margin-bottom	: $size__default-bot-marg;
+	padding-bottom	: $size__default-bot-marg;
+	
+	&:not(:last-of-type) {
+		@include stripes();
+	}
 
 	/* Make sure select elements fit in widgets */
 	select {
@@ -32,3 +37,4 @@
 		width: 98.5%;
 	}
 }
+

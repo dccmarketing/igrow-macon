@@ -437,12 +437,13 @@ if ( ! function_exists( 'igrowmacon_make_phone_link' ) ) :
 
 		if ( empty( $number ) ) { return FALSE; }
 
-		$return = '';
-
-		$formatted 	= preg_replace( '/[^0-9]/', '', $number );
+		$return 	= '';
+		$exts 		= array( ' x', ' ext.', ' ext', ' extension', 'x', 'ext.', 'ext', 'extension' );
+		$extensions = str_replace( $exts, ',', $number );
+		$formatted 	= preg_replace( '/[^0-9\,]/', '', $extensions );
 
 		$return .= '<span itemprop="telephone">';
-		$return .= '<a href="tel:' . $formatted . '">';
+		$return .= '<a href="tel:' . $formatted . '" rel="nofollow">';
 		$return .= '<span class="screen-reader-text">';
 		$return .= esc_html__( 'Call ', 'igrow-macon' ) . '</span>';
 		$return .= $number . '</a>';

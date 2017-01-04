@@ -1,5 +1,5 @@
 .wrap-authorbox {
-	padding: 1em;
+	@include centermax( 1em );
 }
 
 .authorbox-avatar {

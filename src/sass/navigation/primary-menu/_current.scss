@@ -1,0 +1,22 @@
+/**
+ * Current Menu Items.
+ */
+.current-primary-menu-item,
+.current-b2b-main-menu-item {
+	@include tablet-portrait-up {
+		background-color: transparent;
+	}
+}
+
+.current-primary-menu-item-link,
+.current-b2b-main-menu-item-link {
+	color: $dark;
+	
+	&:visited {
+		color: $dark;
+	}
+	
+	&:hover {
+		color: $darkteal;
+	}
+}

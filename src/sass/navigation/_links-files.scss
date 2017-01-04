@@ -1,6 +1,6 @@
-[target="_blank"] {
+.target-blank {
 	position: relative;
-
+	
 	&:hover:after {
 		content 	: "\f504";
 		font-family : 'dashicons';
@@ -10,49 +10,47 @@
 	}
 }
 
-$files: 'pdf' '#FF0000' '\f1c1',
+$files: 'pdf' '#FF0000' '\f497',
+		'ai' 'inherit' '\f497',
+		'eps' 'inherit' '\f497',
+		'psd' 'inherit' '\f497',
+		'svg' 'inherit' '\f497',
+		'swf' 'inherit' '\f497',
 
-		'doc' '#00188F' '\f1c2',
-		'docx' '#00188F' '\f1c2',
+		'doc' '#00188F' '\f491',
+		'docx' '#00188F' '\f491',
+		'txt' 'inherit' '\f491',
+		'rtf' 'inherit' '\f491',
+		
+		'xls' '#007233' '\f495',
+		'xlsx' '#007233' '\f495',
 
-		'xls' '#007233' '\f1c3',
-		'xlsx' '#007233' '\f1c3',
+		'ppt' '#dd5900' '\f496',
+		'pptx' '#dd5900' '\f496',
 
-		'ppt' '#dd5900' '\f1c4',
-		'pptx' '#dd5900' '\f1c4',
+		'zip' 'inherit' '\f501',
+		'tar' 'inherit' '\f501',
+		'gz' 'inherit' '\f501',
+		'dmg' 'inherit' '\f501',
+		'tgz' 'inherit' '\f501',
 
-		'txt' 'inherit' '\f0f6',
-		'rtf' 'inherit' '\f0f6',
+		'aac' 'inherit' '\f500',
+		'flac' 'inherit' '\f500',
+		'm4a' 'inherit' '\f500',
+		'm4p' 'inherit' '\f500',
+		'mp3' 'inherit' '\f500',
+		'ogg' 'inherit' '\f500',
+		'wav' 'inherit' '\f500',
+		'wma' 'inherit' '\f500',
 
-		'zip' 'inherit' '\f1c6',
-		'tar' 'inherit' '\f1c6',
-		'gz' 'inherit' '\f1c6',
-		'dmg' 'inherit' '\f1c6',
-		'tgz' 'inherit' '\f1c6',
-
-		'aac' 'inherit' '\f1c7',
-		'flac' 'inherit' '\f1c7',
-		'm4a' 'inherit' '\f1c7',
-		'm4p' 'inherit' '\f1c7',
-		'mp3' 'inherit' '\f1c7',
-		'ogg' 'inherit' '\f1c7',
-		'wav' 'inherit' '\f1c7',
-		'wma' 'inherit' '\f1c7',
-
-		'webm' 'inherit' '\f1c8',
-		'mov' 'inherit' '\f1c8',
-		'wmv' 'inherit' '\f1c8',
-		'mp4' 'inherit' '\f1c8',
-		'm4v' 'inherit' '\f1c8',
-		'mpg' 'inherit' '\f1c8',
-		'mp2' 'inherit' '\f1c8',
-		'mpeg' 'inherit' '\f1c8',
-
-		'ai' 'inherit' '\f1c5',
-		'eps' 'inherit' '\f1c5',
-		'psd' 'inherit' '\f1c5',
-		'svg' 'inherit' '\f1c5',
-		'swf' 'inherit' '\f1c5';
+		'webm' 'inherit' '\f490',
+		'mov' 'inherit' '\f490',
+		'wmv' 'inherit' '\f490',
+		'mp4' 'inherit' '\f490',
+		'm4v' 'inherit' '\f490',
+		'mpg' 'inherit' '\f490',
+		'mp2' 'inherit' '\f490',
+		'mpeg' 'inherit' '\f490';
 
 @each $file in $files {
 	[href*=".#{nth($file, 1)}"] {
@@ -61,19 +59,10 @@ $files: 'pdf' '#FF0000' '\f1c1',
 			color: #{nth($file, 2)};
 			content 		: "#{nth($file, 3)}";
 			display 		: inline-block;
-			font-family 	: 'fontawesome';
-			font-size 		: inherit;
-			font-style 		: normal;
-			font-variant 	: normal;
-			font-weight 	: normal;
+			font-family 	: 'dashicons';
 			line-height 	: 1;
-			margin-left 	: 0.25em;
 			speak 			: none;
-			text-align 		: center;
-			text-decoration : inherit;
-			text-transform 	: none;
-			width 			: 1em;
-			vertical-align 	: inherit;
+			text-decoration : none;
 		}
 	}
 }

@@ -116,7 +116,7 @@ if ( empty( $this->meta[$atts['name']] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['name'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['name'], $props, $atts );
-$group 	= new iGrowMacon_Field_Group( 'repeater', $atts, $props, $fields );
+$group 	= new iGrow_Macon_Field_Group( 'repeater', $atts, $props, $fields );
 $group->display_group();
 
 unset( $atts );

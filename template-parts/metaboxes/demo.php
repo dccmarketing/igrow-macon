@@ -33,7 +33,7 @@ if ( array_key_exists( $atts['id'], $this->meta ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'checkbox', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'checkbox', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -55,7 +55,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'color', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'color', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -77,7 +77,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'date', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'date', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -98,7 +98,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'editor', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'editor', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -120,7 +120,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'file-upload', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'file-upload', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -144,7 +144,7 @@ $atts = apply_filters( 'igrowmacon-field-' . $atts['id'], $atts );
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'select-formidable-form', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'select-formidable-form', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -166,7 +166,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'image-upload', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'image-upload', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -190,7 +190,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'radio', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'radio', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -212,7 +212,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'select-menu', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'select-menu', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -234,7 +234,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'select-page', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'select-page', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -258,7 +258,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'select-slider', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'select-slider', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -283,7 +283,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'select', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'select', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -305,7 +305,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'select-taxonomy', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'select-taxonomy', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -327,7 +327,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'text', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'text', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -349,7 +349,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'textarea', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'textarea', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -371,7 +371,7 @@ if ( ! empty( $this->meta[$atts['id']][0] ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'time', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'time', $atts, $props );
 $field->display_field();
 
 unset( $atts );

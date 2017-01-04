@@ -7,9 +7,14 @@
 ( function() {
 
 	var container = document.querySelector( '#site-navigation' );
-	if ( ! container ) { return; }
-
+	if ( 'undefined' === typeof container ) { return; }
+	
 	var menu = container.querySelector( '#primary-menu' );
+	
+	if ( 'undefined' === typeof menu ) { return; }
+		menu = container.querySelector( '#b2b-main-menu' );
+	}
+	if ( 'undefined' === typeof menu ) { return; }
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
@@ -57,7 +62,7 @@
 
 		}
 
-		if ( target.matches( '.show-hide' ) ) {
+		if ( target.matches( '.menu-primary-submenu-toggle' ) ) {
 
 			openSubmenu( event, target );
 
@@ -200,6 +205,8 @@
 			toggleAttribute( target, 'aria-expanded', 'false' );
 
 		}
+		
+		menu.classList.toggle( 'primary-menu-items-open' );
 
 		var body = document.querySelector( 'body' );
 
@@ -211,7 +218,6 @@
 	 * Removes the focus class from each sibling link.
 	 *
 	 * @param 		object 		event 		The event.
-	 * @return {[type]}        [description]
 	 */
 	function touchStart( event ) {
 
@@ -242,5 +248,6 @@
 	container.addEventListener( 'focus', toggleFocus );
 	container.addEventListener( 'blur', toggleFocus );
 	container.addEventListener( 'touchstart', touchStart );
+	//container.addEventListener( 'touchstart', clickEvent );
 
 } )();

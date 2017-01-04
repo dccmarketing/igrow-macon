@@ -1,5 +1,6 @@
 p {
-	margin-bottom: $size__default-bot-marg;
+	margin-bottom	: $size__default-bot-marg;
+	margin-top 		: 0;
 }
 
 dfn,
@@ -29,7 +30,7 @@ q {
 		display: inline;
 	}
 
-	@media (min-width: 43.75em) {
+	@include tablet-landscape-up {
 		font-size 	: 1.5em;
 		line-height : 1.45833333;
 	}
@@ -40,7 +41,8 @@ blockquote {
 }
 
 address {
-	margin: 0;
+	font-style 	: normal;
+	margin 		: 0;
 }
 
 pre {

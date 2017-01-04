@@ -3,7 +3,7 @@ $ltgray 	: #f7f7f7;
 $ltmed 		: #ddd;
 $med		: #ccc;
 $darkmed 	: darken( $med, 25% );
-$dark		: #020202;
+$dark		: #212222;
 $darkdark 	: darken( $dark, 25% );
 
 $ltyellow 	: #fff9c0; // bg for inserted text
@@ -13,12 +13,28 @@ $ltshadow	: rgba(0, 0, 0, 0.05);
 $medshadow	: rgba(255, 255, 255, 0.5);
 $darkshadow	: rgba(255, 255, 255, 0.8);
 
-$errorred 	: #dc3232;
+$transdark 	: rgba( $dark, 0.8 );
+
+
+// Theme Colors
+$yellow		: #ffe793; // ffcf2e
+$green 		: #d9e01f;
+$teal 		: #00B6AF;
+$orange 	: #F46521;
+$cream 		: #fffaee;
+$red 		: #f0505a;
+$yeller 	: #ffcf2d;
+$liteorange : #f8992f;
+
+$darkred 	: darken( $red, 10% );
+$darkorange : darken( $orange, 7.5% );
+$darkteal 	: darken( $teal, 9% );
 
 
 
 // Universal colors
-$color__outline 			: $med;
-$color__link				: royalblue;
-$color__link-visited		: purple;
-$color__link-hover			: midnightblue;
+$color__outline 			: $orange;
+$color__link				: $darkred;
+$color__link-visited		: $darkred;
+$color__link-hover			: $darkteal;
+$errorred 					: $red

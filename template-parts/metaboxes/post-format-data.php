@@ -31,7 +31,7 @@ if ( FALSE === strpos( $atts['id'], $format ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'url', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'url', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -62,7 +62,7 @@ if ( FALSE === strpos( $atts['id'], $format ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'image-upload', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'image-upload', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -93,7 +93,7 @@ if ( FALSE === strpos( $atts['id'], $format ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'url', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'url', $atts, $props );
 $field->display_field();
 
 unset( $atts );
@@ -124,7 +124,7 @@ if ( FALSE === strpos( $atts['id'], $format ) ) {
 
 $atts 	= apply_filters( 'igrowmacon-field-atts-' . $atts['id'], $atts, $props );
 $props 	= apply_filters( 'igrowmacon-field-props-' . $atts['id'], $props, $atts );
-$field 	= new iGrowMacon_Field( 'url', $atts, $props );
+$field 	= new iGrow_Macon_Field( 'url', $atts, $props );
 $field->display_field();
 
 unset( $atts );

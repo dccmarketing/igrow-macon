@@ -21,15 +21,26 @@ class iGrow_Macon_Themehooks {
 
 		add_action( 'igrowmacon_head_content', 			array( $this, 'head_content' ), 10 );
 
-		add_action( 'igrowmacon_header_top', 				array( $this, 'header_wrap_start' ), 10 );
-		add_action( 'igrowmacon_header_top', 				array( $this, 'site_branding_begin' ), 15 );
+		add_action( 'igrowmacon_header_top', 			array( $this, 'header_wrap_start' ), 10 );
+		add_action( 'igrowmacon_header_top', 			array( $this, 'site_branding_begin' ), 15 );
 
-		add_action( 'igrowmacon_header_content', 			array( $this, 'title_site' ), 10 );
-		add_action( 'igrowmacon_header_content', 			array( $this, 'site_description' ), 15 );
+		add_action( 'igrowmacon_header_content', 		array( $this, 'title_site' ), 10 );
+		//add_action( 'igrowmacon_header_content', 		array( $this, 'site_description' ), 15 );
 
-		add_action( 'igrowmacon_header_bottom', 			array( $this, 'site_branding_end' ), 85 );
-		add_action( 'igrowmacon_header_bottom', 			array( $this, 'header_wrap_end' ), 90 );
-		add_action( 'igrowmacon_header_bottom', 			array( $this, 'menu_primary' ), 95 );
+		add_action( 'igrowmacon_header_bottom', 		array( $this, 'site_branding_end' ), 50 );
+		add_action( 'igrowmacon_header_bottom', 		array( $this, 'menu_toggles' ), 60 );
+		add_action( 'igrowmacon_header_bottom', 		array( $this, 'header_wrap_end' ), 90 );
+		add_action( 'igrowmacon_header_bottom', 		array( $this, 'menu_primary' ), 95 );
+		
+		add_action( 'igrowmacon_header_after', 			array( $this, 'contact_bar_begin' ) );
+		add_action( 'igrowmacon_header_after', 			array( $this, 'phone_button' ) );
+		add_action( 'igrowmacon_header_after', 			array( $this, 'menu_social' ) );
+		add_action( 'igrowmacon_header_after', 			array( $this, 'contact_bar_end' ) );
+		
+		add_action( 'igrowmacon_content_before', 		array( $this, 'slider_home' ) );
+		add_action( 'igrowmacon_content_before', 		array( $this, 'slider_home_b2b' ) );
+		add_action( 'igrowmacon_content_before', 		array( $this, 'featured_image' ) );
+		//add_action( 'igrowmacon_content_before', 		array( $this, 'coin_flips' ) );
 
 		add_action( 'igrowmacon_body_top', 				array( $this, 'analytics_code' ), 10 );
 		add_action( 'igrowmacon_body_top', 				array( $this, 'skip_link' ), 20 );
@@ -39,6 +50,7 @@ class iGrow_Macon_Themehooks {
 		add_action( 'igrowmacon_while_before', 			array( $this, 'title_archive' ) );
 		add_action( 'igrowmacon_while_before', 			array( $this, 'title_single_post' ) );
 		add_action( 'igrowmacon_while_before', 			array( $this, 'title_search' ), 10 );
+		add_action( 'igrowmacon_while_before', 			array( $this, 'title_news_page' ), 10 );
 
 		add_action( 'igrowmacon_content_top', 			array( $this, 'breadcrumbs' ) );
 
@@ -56,11 +68,11 @@ class iGrow_Macon_Themehooks {
 
 		add_action( 'igrowmacon_while_after', 			array( $this, 'posts_nav' ) );
 
-		add_action( 'igrowmacon_main_after', 				array( $this, 'content_sidebar' ), 10 );
+		add_action( 'igrowmacon_main_after', 			array( $this, 'content_sidebar' ), 10 );
 
-		add_action( 'igrowmacon_404_header', 				array( $this, 'title_404' ), 10 );
+		add_action( 'igrowmacon_404_header', 			array( $this, 'title_404' ), 10 );
 
-		add_action( 'igrowmacon_404_before', 				array( $this, 'four_04_message' ), 10 );
+		add_action( 'igrowmacon_404_before', 			array( $this, 'four_04_message' ), 10 );
 
 		add_action( 'igrowmacon_404_content', 			array( $this, 'add_search' ), 10 );
 		add_action( 'igrowmacon_404_content', 			array( $this, 'four_04_posts_widget' ), 15 );
@@ -68,12 +80,18 @@ class iGrow_Macon_Themehooks {
 		add_action( 'igrowmacon_404_content', 			array( $this, 'four_04_archives' ), 25 );
 		add_action( 'igrowmacon_404_content', 			array( $this, 'four_04_tag_cloud' ), 30 );
 
-		add_action( 'igrowmacon_footer_top', 				array( $this, 'footer_wrap_begin' ) );
+		add_action( 'igrowmacon_footer_before', 		array( $this, 'stripes_bar' ) );
+		add_action( 'igrowmacon_footer_before', 		array( $this, 'coin_flips' ) );
 
-		add_action( 'igrowmacon_footer_content', 			array( $this, 'footer_content' ), 20 );
-		add_action( 'igrowmacon_footer_content', 			array( $this, 'menu_social' ), 20 );
+		add_action( 'igrowmacon_footer_top', 			array( $this, 'footer_wrap_begin' ) );
 
-		add_action( 'igrowmacon_footer_bottom', 			array( $this, 'footer_wrap_end' ) );
+		add_action( 'igrowmacon_footer_content', 		array( $this, 'footer_content_begin' ), 5 );
+		add_action( 'igrowmacon_footer_content', 		array( $this, 'footer_content_copyright' ), 10 );
+		add_action( 'igrowmacon_footer_content', 		array( $this, 'footer_content_address' ), 20 );
+		add_action( 'igrowmacon_footer_content',		array( $this, 'footer_content_credits' ), 30 );
+		add_action( 'igrowmacon_footer_content', 		array( $this, 'footer_content_end' ), 50 );
+
+		add_action( 'igrowmacon_footer_bottom', 		array( $this, 'footer_wrap_end' ) );
 
 	} // hooks()
 
@@ -169,6 +187,86 @@ class iGrow_Macon_Themehooks {
 		</div><!-- .breadcrumbs --><?php
 
 	} // breadcrumbs()
+	
+	public function coin_flips() {
+		
+		if ( is_home() ) { return; }
+		
+		$circles[] = array( 'pram', 'For expectant moms and families of children birth to 5 years old' );
+		$circles[] = array( 'house', 'One-on-One Home Visits' );
+		$circles[] = array( 'blocks', 'Focuses on Parent-Child Relationship' );
+		$circles[] = array( 'family', 'Promotes Healthy Children and Families' );
+		$circles[] = array( 'brain', 'Developmental Screening' );
+		$circles[] = array( 'handandheart', 'Connection to Additional Resources' );
+
+		?><div class="igrow-coins">
+			<ul class="coin-list"><?php
+
+			foreach ( $circles as $circle ) {
+
+				?><li class="single-coin home-circle">
+					<div class="coin-wrap">
+						<div class="coin-side coin-front"><?php 
+						
+							igrowmacon_the_svg( $circle[0] ); 
+							
+						?></div>
+						<div class="coin-side coin-back">
+							<span class="coin-text"><?php 
+						
+								esc_html_e( $circle[1], 'igrow-illinois' ); 
+								
+							?></span>
+						</div>
+					</div>
+				</li><?php
+
+			}
+
+			?></ul>
+		</div><?php
+		
+	} // coin_flips()
+	
+	public function coin_flips_footer() {
+		
+		if ( is_home() ) { return; }
+		
+		$circles[] = array( 'pram', 'For expectant moms and families of children birth to 5 years old' );
+		$circles[] = array( 'house', 'One-on-One Home Visits' );
+		$circles[] = array( 'blocks', 'Focuses on Parent-Child Relationship' );
+		$circles[] = array( 'family', 'Promotes Healthy Children and Families' );
+		$circles[] = array( 'brain', 'Developmental Screening' );
+		$circles[] = array( 'handandheart', 'Connection to Additional Resources' );
+
+		?><div class="igrow-coins-footer">
+			<ul class="coin-list"><?php
+
+			foreach ( $circles as $circle ) {
+
+				?><li class="single-coin home-circle">
+					<div class="coin-wrap">
+						<div class="coin-side coin-front"><?php 
+						
+							igrowmacon_the_svg( $circle[0] ); 
+							
+						?></div>
+						<div class="coin-side coin-back">
+							<span class="coin-text"><?php 
+						
+								esc_html_e( $circle[1], 'igrow-illinois' ); 
+								
+							?></span>
+						</div>
+					</div>
+				</li><?php
+
+			}
+
+			?></ul>
+		</div><?php
+		
+	} // coin_flips_footer()
 
 	/**
 	 * The comments markup
@@ -187,6 +285,18 @@ class iGrow_Macon_Themehooks {
 		comments_template();
 
 	} // comments()
+	
+	public function contact_bar_begin() {
+
+		?><div class="contact-bar"><?php
+
+	} // contact_bar_begin()
+	
+	public function contact_bar_end() {
+
+		?></div><!-- .contact-bar --><?php
+
+	} // contact_bar_end()
 
 	/**
 	 * Returns the sidebar markup.
@@ -204,8 +314,9 @@ class iGrow_Macon_Themehooks {
 	 * @return 		mixed 					The sidebar markup.
 	 */
 	public function content_sidebar() {
-
-		if ( is_page() && ! is_page_template( 'templates/page_content-sidebar.php' ) ) { return; }
+		
+		if ( ! is_page() ) { return; }
+		if ( ! is_page_template( 'templates/page_content-sidebar.php' ) ) { return; }
 
 		get_sidebar();
 
@@ -245,11 +356,21 @@ class iGrow_Macon_Themehooks {
 
 		if ( is_page() ) { return; }
 		if ( 'post' !== get_post_type() ) { return; }
-		if ( is_single() && post_password_required() && ( ! comments_open() || ! get_comments_number() ) ) { return; }
+		if ( ! is_single() ) { return; }
+		if ( post_password_required() ) { return; }
+		if ( ! comments_open() || ! get_comments_number() ) { return; }
 
 		?><span class="comments-link"><?php
 
-		comments_popup_link( sprintf( wp_kses( __( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'igrow-macon' ), array( 'span' => array( 'class' => array() ) ) ), get_the_title() ) ); // translators: %s: post title
+		comments_popup_link( 
+			sprintf( 
+				wp_kses( 
+					__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'igrow-macon' 
+				), 
+				array( 'span' => array( 'class' => array() ) ) ), 
+				get_the_title() 
+			) 
+		); // translators: %s: post title
 
 		?></span><?php
 
@@ -292,21 +413,85 @@ class iGrow_Macon_Themehooks {
 		printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'igrow-macon' ) . '</span>', $tags_list );  // WPCS: XSS OK.
 
 	} // entry_tags_links()
+	
+	public function featured_image() {
+		
+		if ( is_front_page() ) { return; }
+		if ( is_page( 'how-we-work' ) ) { return; }
+		
+		?><div class="featured-image"></div><?php
+		
+	} // featured_image()
+		
+	/**
+	 * Adds the address to the footer content.
+	 *
+	 * @hooked 		igrowmacon_footer_content
+	 * @return 		mixed 		The footer markup
+	 */
+	public function footer_content_address() {
+
+		$address = get_theme_mod( 'contact_address' );
+		
+		if ( empty( $address ) ) { return; }
+				
+		?><address class="address">
+			<a href="<?php echo igrowmacon_make_map_link( $address ); ?>"><?php
+		
+			echo esc_html( $address );
+		
+			?></a>
+		</address><?php
+
+	} // footer_content_address()
 
 	/**
-	 * Adds the copyright and credits to the footer content.
+	 * Adds the opening footer content tag.
+	 *
+	 * @hooked 		igrowmacon_footer_content
+	 * @return 		mixed 		The footer markup
+	 */
+	public function footer_content_begin() {
+
+		?><div class="site-info"><?php
+
+	} // footer_content_begin()
+	
+	/**
+	 * Adds the copyright to the footer content.
+	 *
+	 * @hooked 		igrowmacon_footer_content
+	 * @return 		mixed 		The footer markup
+	 */
+	public function footer_content_copyright() {
+
+		?><div class="copyright">&copy <?php echo date( 'Y' ); ?> <a href="<?php echo esc_url( get_admin_url(), 'igrow-macon' ); ?>"><?php echo get_bloginfo( 'name' ); ?></a></div><?php
+
+	} // footer_content_copyright()
+	
+	/**
+	 * Adds the site credits to the footer content.
 	 *
 	 * @hooked 		igrowmacon_footer_content
 	 * @return 		mixed 									The footer markup
 	 */
-	public function footer_content() {
+	public function footer_content_credits() {
 
-		?><div class="site-info">
-			<div class="copyright">&copy <?php echo date( 'Y' ); ?> <a href="<?php echo esc_url( get_admin_url(), 'igrow-macon' ); ?>"><?php echo get_bloginfo( 'name' ); ?></a></div>
-			<div class="credits"><?php printf( esc_html__( 'Site created by %1$s', 'igrow-macon' ), '<a href="https://dccmarketing.com/" rel="nofollow noopener" target="_blank">DCC</a>' ); ?></div>
-		</div><!-- .site-info --><?php
+			?><div class="credits"><?php printf( esc_html__( 'Site created by %1$s', 'igrow-macon' ), '<a href="https://dccmarketing.com/" rel="nofollow noopener" target="_blank">DCC</a>' ); ?></div><?php
 
-	} // footer_content()
+	} // footer_content_credits()
+	
+	/**
+	 * Adds the ending footer tag.
+	 *
+	 * @hooked 		igrowmacon_footer_content
+	 * @return 		mixed 		The footer markup
+	 */
+	public function footer_content_end() {
+
+		?></div><!-- .site-info --><?php
+
+	} // footer_content_end()
 
 	/**
 	 * Adds the opening wrapper tag.
@@ -316,7 +501,7 @@ class iGrow_Macon_Themehooks {
 	 */
 	public function footer_wrap_begin() {
 
-		?><div class="wrap wrap-footer"><?php
+		?><div class="wrap-footer"><?php
 
 	} // footer_wrap_begin()
 
@@ -459,10 +644,10 @@ class iGrow_Macon_Themehooks {
 	 */
 	public function header_wrap_start() {
 
-		?><div class="wrap wrap-header"><?php
+		?><div class="wrap-header"><?php
 
 	} // header_wrap_start()
-
+	
 	/**
 	 * Adds the primary menu
 	 *
@@ -473,16 +658,25 @@ class iGrow_Macon_Themehooks {
 
 		?><nav id="site-navigation" class="nav-primary" role="navigation">
 			<button class="menu-primary-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'igrow-macon' ); ?></button><?php
-
+			
+			if ( is_page_template( 'templates/page_B2B.php' ) ) {
+			
+				$menu_args['menu_id'] = 'b2b-main-menu';
+			
+			} else {
+				
 				$menu_args['menu_id'] 			= 'primary-menu';
-				$menu_args['container'] 		= false;
-				$menu_args['container_class'] 	= 'menu-primary-wrap';
-				$menu_args['items_wrap'] 		= '<ul id="%1$s" class="%2$s"><button class="close-tablet-menu-btn"><span class="close-btn-text">Close Menu</span></button>%3$s</ul>';
-				$menu_args['menu_class']      	= 'primary-menu-items primary-menu-items-0';
 				$menu_args['theme_location'] 	= 'primary';
-				$menu_args['walker']  			= new iGrow_Macon_Walker();
 
-				wp_nav_menu( $menu_args );
+			}
+			
+			$menu_args['container'] 		= false;
+			$menu_args['container_class'] 	= 'menu-primary-wrap';
+			$menu_args['items_wrap'] 		= '<ul id="%1$s" class="%2$s"><button class="close-tablet-menu-btn"><span class="close-btn-text">Close Menu</span></button>%3$s</ul>';
+			$menu_args['menu_class']      	= 'primary-menu-items primary-menu-items-0';
+			$menu_args['walker']  			= new iGrow_Macon_Menu_Walker();
+				
+			wp_nav_menu( $menu_args );
 
 		?></nav><!-- #site-navigation --><?php
 
@@ -500,17 +694,47 @@ class iGrow_Macon_Themehooks {
 		if ( ! has_nav_menu( 'social' ) ) { return; }
 
 		$menu_args['theme_location']	= 'social';
-		$menu_args['container'] 		= 'div';
-		$menu_args['container_id']    	= 'menu-social-media';
-		$menu_args['container_class'] 	= 'menu nav-social';
-		$menu_args['menu_id']         	= 'menu-social-media-items';
-		$menu_args['menu_class']      	= 'menu-items';
+		$menu_args['container'] 		= false;
 		$menu_args['depth']           	= 1;
-		$menu_args['fallback_cb']     	= '';
+		$menu_args['menu_class']      	= 'social-menu-items social-menu-items-0';
+		$menu_args['menu_id'] 			= 'social-menu';
+		$menu_args['walker']  			= new iGrow_Macon_Menu_Walker();
 
 		wp_nav_menu( $menu_args );
 
 	} // menu_social()
+	
+	public function menu_toggles() {
+		
+		if ( ! has_nav_menu( 'toggles' ) ) { return; }
+
+		$menu_args['theme_location']	= 'toggles';
+		$menu_args['container'] 		= false;
+		$menu_args['depth']           	= 1;
+		$menu_args['menu_class']      	= 'toggles-menu-items toggles-menu-items-0';
+		$menu_args['menu_id'] 			= 'nav-toggles';
+		$menu_args['walker']  			= new iGrow_Macon_Menu_Walker();
+
+		wp_nav_menu( $menu_args );
+		
+	} // menu_toggles()
+	
+	/**
+	 * Displays a linked phone number.
+	 * 
+	 * @return [type] [description]
+	 */
+	public function phone_button() {
+		
+		$text = get_theme_mod( 'btn_phone_text' );
+		
+		if ( empty( $text ) ) { return; }
+		
+		?><div class="btn-phone">
+			<span class="btn-phone-text"><?php echo esc_html( $text ); ?></span>
+		</div><?php
+		
+	} // phone_button()
 
 	/**
 	 * Adds the posted_on post meta.
@@ -579,6 +803,7 @@ class iGrow_Macon_Themehooks {
 	 */
 	public function sidebar_content() {
 
+		if ( ! is_page() ) { return; }
 		if ( ! is_page_template( 'templates/page_sidebar-content.php' ) ) { return; }
 
 		get_sidebar();
@@ -638,6 +863,44 @@ class iGrow_Macon_Themehooks {
 		?><a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'igrow-macon' ); ?></a><?php
 
 	} // skip_link()
+	
+	/**
+	 * Displays the "home" slider.
+	 * @return 		mixed 		The home slider markup.
+	 */
+	public function slider_home() {
+		
+		if ( ! is_front_page() ) { return; }	
+		if ( ! function_exists( 'soliloquy' ) ) { return; }
+		
+		soliloquy( 'home', 'slug' );
+		
+	} // slider_home()
+	
+	/**
+	 * Displays the "home" slider for the B2B home page.
+	 * @return 		mixed 		The home B2B slider markup.
+	 */
+	public function slider_home_b2b() {
+		
+		if ( ! is_page( 'how-we-work' ) ) { return; }	
+		if ( ! function_exists( 'soliloquy' ) ) { return; }
+		
+		soliloquy( 'home-b2b', 'slug' );
+		
+	} // slider_home_b2b()
+	
+	/**
+	 * Adds the stripes bar for mobile.
+	 * @return 		mixed 		The stripes bar markup.
+	 */
+	public function stripes_bar() {
+		
+		?><div class="stripes-bar">
+			<div class="stripes-inner"></div>
+		</div><?php
+		
+	} // stripes_bar()
 
 	/**
 	 * Returns the page title
@@ -671,7 +934,7 @@ class iGrow_Macon_Themehooks {
 
 		?><header class="page-header"><?php
 
-			the_archive_title( '<h1 class="page-title">', '</h1>' );
+			the_archive_title( '<h1 class="page-title cat-title">', '</h1>' );
 			the_archive_description( '<div class="taxonomy-description">', '</div>' );
 
 		?></header><!-- .page-header --><?php
@@ -697,11 +960,22 @@ class iGrow_Macon_Themehooks {
 
 		} else {
 
-			the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+			the_title( sprintf( '<h2 class="entry-title"><a class="entry-title-link" href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 
 		}
 
 	} // title_entry()
+	
+	public function title_news_page() {
+		
+		if ( ! is_home() ) { return; }
+		
+		$posts_page = get_option( 'page_for_posts' );
+		$title 		= get_the_title( $posts_page );
+		
+		?><h1 class="page-title"><?php echo esc_html( $title ); ?></h1><?php
+		
+	} // title_news_page()
 
 	/**
 	 * Returns the page title
@@ -714,7 +988,6 @@ class iGrow_Macon_Themehooks {
 	 */
 	public function title_page() {
 
-		if ( is_front_page() || is_home() ) { return; }
 		if ( ! is_page() ) { return; }
 
 		the_title( '<h1 class="page-title">', '</h1>' );
@@ -752,6 +1025,7 @@ class iGrow_Macon_Themehooks {
 	public function title_single_post() {
 
 		if ( ! is_home() && is_front_page() ) { return; }
+		if ( ! is_archive() ) { return; }
 
 		?><header>
 			<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
@@ -773,7 +1047,7 @@ class iGrow_Macon_Themehooks {
 
 		$logo = get_custom_logo();
 
-		if ( is_front_page() && is_home() && ! empty( $logo ) ) {
+		if ( is_front_page() || is_home() && ! empty( $logo ) ) {
 
 			?><h1 class="site-title"><?php echo $logo; ?></h1><?php
 
@@ -781,7 +1055,7 @@ class iGrow_Macon_Themehooks {
 
 			?><p class="site-title"><?php echo $logo; ?></p><?php
 
-		} elseif ( is_front_page() && is_home() ) {
+		} elseif ( is_front_page() || is_home() ) {
 
 			?><h1 class="site-title">
 				<a class="site-title-link" href="<?php

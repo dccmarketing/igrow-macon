@@ -31,6 +31,8 @@ class iGrow_Macon_Utilities {
 		add_action( 'init', 							array( $this, 'disable_emojis' ) );
 		add_filter( 'excerpt_length', 					array( $this, 'excerpt_length' ) );
 		add_filter( 'excerpt_more', 					array( $this, 'excerpt_read_more' ) );
+		add_filter( 'get_the_archive_title', 			array( $this, 'category_title' ), 10, 1 );
+		add_filter( 'the_posts', 						array( $this, 'stickies_first' ), 10, 2 );
 
 		add_filter( 'post_mime_types', 					array( $this, 'add_mime_types' ) );
 		add_filter( 'upload_mimes', 					array( $this, 'custom_upload_mimes' ) );
@@ -88,23 +90,32 @@ class iGrow_Macon_Utilities {
 
 		if ( ! $image ) {
 
-			$image = get_theme_mod( 'default_bg_image' );
+			$image = get_theme_mod( 'default_header_image' );
 
 		}
 
 		if ( empty( $image ) ) { return; }
 
 		?><style>
-			.site-content {background-image:url(<?php echo esc_url( $image ); ?>);}
-
-			@media screen and (max-width: 767px){
-				.site-content {background-image:url() !important;}
-				.site-content:before {background-image:url(<?php echo esc_url( $image ); ?>);}
-			}
-
+			.featured-image {background-image:url(<?php echo esc_url( $image ); ?>);}
 		</style><!-- Background Images --><?php
 
 	} // background_images()
+	
+	/**
+	 * Removes "category" from the category page title.
+	 *
+	 * @exits 		If not a category.
+	 * @param 		string 		$title 		The current title.
+	 * @return 		string 					The modified title.
+	 */
+	public function category_title( $title ) {
+		
+		if ( ! is_category() ) { return $title; }
+		
+		return str_replace( 'Category: ', '', $title );
+		
+	} // category_title()
 
 	/**
 	 * Flush out the transients used in igrowmacon_categorized_blog.
@@ -361,6 +372,29 @@ class iGrow_Macon_Utilities {
 		return $src;
 
 	} // remove_cssjs_ver()
+	
+	public function stickies_first( $posts, $query ) {
+		
+		if ( ! $query->is_main_query() ) { return $posts; }
+		if ( ! is_archive() ) { return $posts; }
+		if ( 0 < get_query_var( 'paged' ) ) { return $posts; }
+		if ( '' === get_query_var( 'cat' )) { return $posts; }
+		
+		$stickies = array();
+		
+		foreach ( $posts as $key => $post ) {
+			
+			if ( ! is_sticky( $post->ID ) ) { continue; }
+			
+			$stickies[] = $post;
+			
+			unset( $posts[$key] );
+	
+		}
+		
+		return array_merge( $stickies, $posts );
+		
+	} // stickies_first()
 
 	/**
 	 * Adds the video ID as the ID attribute on the iframe

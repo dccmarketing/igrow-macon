@@ -1,0 +1,30 @@
+@mixin stripes() {
+	border-bottom	: 2px solid $red;
+	position		: relative;
+	
+	&:after,
+	&:before {
+		content			: "";
+		left 			: 0;
+		position		: absolute;
+		width 			: 100%;
+	}
+	
+	&:after {
+		background-color: $green;
+		border-bottom 	: 2px solid $red;
+		border-top 		: 2px solid $orange;
+		bottom 			: -10px;
+		height 			: 6px;
+		z-index 		: -1;
+	}
+	
+	&:before {
+		background-color: $yellow;
+		border-bottom 	: 2px solid $light;
+		border-top 		: 2px solid $light;
+		bottom 			: -14px;
+		height 			: 16px;
+		z-index 		: -2;
+	}
+}
