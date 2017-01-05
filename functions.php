@@ -45,15 +45,11 @@ require get_stylesheet_directory() . '/classes/class-autoloader.php';
 /**
  * Create an instance of each class and load the hooks function.
  */
-//$classes[] = 'Authorbox';
-//$classes[] = 'Automattic';
 $classes[] = 'Customizer';
 $classes[] = 'Editor';
-$classes[] = 'Hidden_Search';
 $classes[] = 'Menukit';
+$classes[] = 'Metabox_Header';
 $classes[] = 'Setup';
-$classes[] = 'Shortcode_Listmenu';
-$classes[] = 'Shortcode_Search';
 $classes[] = 'Soliloquy';
 $classes[] = 'Themehooks';
 $classes[] = 'Users';

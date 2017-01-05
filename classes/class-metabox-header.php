@@ -6,7 +6,7 @@
  * @package 		iGrow_Macon
  * @subpackage 		iGrow_Macon/classes
  */
-class iGrow_Macon_Metabox_Subtitle {
+class iGrow_Macon_Metabox_Header {
 
 	/**
 	 * The metabox class object.
@@ -21,12 +21,13 @@ class iGrow_Macon_Metabox_Subtitle {
 	 */
 	public function __construct() {
 
-		$nonce 				= 'nonce_igrowmacon_subtitle';
-		$fields[] 			= array( 'subtitle', 'text', '' );
-		$props['context'] 	= 'top';
-		$props['file'] 		= 'subtitle';
-		$props['id'] 		= 'subtitle';
-		$props['name'] 		= __( 'Subtitle', 'igrow-macon' );
+		$conditions['post_type'] 	= 'page';
+		$fields[] 					= array( 'select-slider', 'select', '' );
+		$fields[] 					= array( 'hide-breadcrumbs', 'checkbox', '' );
+		$nonce 						= 'nonce_igrowmacon_header';
+		$props['name'] 				= __( 'Header', 'igrow-macon' );
+		$props['id'] 				= 'header';
+		$props['context'] 			= 'side';
 
 		$this->metabox 		= new iGrow_Macon_Metabox( $props, $nonce, $fields );
 

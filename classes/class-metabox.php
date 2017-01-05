@@ -305,15 +305,19 @@ class iGrow_Macon_Metabox {
 		if ( ! $validate ) { return $post_id; }
 
 		foreach ( $this->fields as $meta ) {
-
+			
 			if ( is_array( $meta[2] ) && 'repeater' === $meta[1] ) {
 
 				$new_value = $this->sanitize_repeater( $meta, $_POST[$meta[0]] );
 
-			} else {
+			} elseif ( isset( $_POST[$meta[0]] ) ) {
 
 				$new_value = $this->sanitize_meta( $meta, $_POST[$meta[0]] );
 
+			} else {
+				
+				$new_value = '';
+				
 			}
 
 			update_post_meta( $post_id, $meta[0], $new_value );

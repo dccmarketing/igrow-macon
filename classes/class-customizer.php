@@ -136,26 +136,30 @@ class iGrow_Macon_Customizer {
 
 		// Site Identity Section Fields
 
-		// Google Tag Manager Field
+		// Google Tag Manager ID Field
 		$wp_customize->add_setting(
-			'tag_manager',
+			'tag_manager_id',
 			array(
+				'capability' 		=> 'edit_theme_options',
 				'default'  			=> '',
-				'transport' 		=> 'postMessage'
+				'sanitize_callback' => 'sanitize_text_field',
+				'transport' 		=> 'postMessage',
+				'type' 				=> 'theme_mod'
 			)
 		);
 		$wp_customize->add_control(
-			'tag_manager',
+			'tag_manager_id',
 			array(
-				'description' 		=> esc_html__( 'Paste in the Google Tag Manager code here. Do not include the comment tags!', 'igrow-macon' ),
-				'label' 			=> esc_html__( 'Google Tag Manager', 'igrow-macon' ),
-				'priority' 			=> 90,
-				'section' 			=> 'title_tagline',
-				'settings' 			=> 'tag_manager',
-				'type' 				=> 'textarea'
+				'active_callback' 	=> '',
+				'description' 		=> esc_html__( 'Enter the Google Tag Manager container ID.', 'worknet' ),
+				'label'  			=> esc_html__( 'Google Tag Manager ID', 'worknet' ),
+				'priority' 			=> 10,
+				'section'  			=> 'title_tagline',
+				'settings' 			=> 'tag_manager_id',
+				'type' 				=> 'text'
 			)
 		);
-		$wp_customize->get_setting( 'tag_manager' )->transport = 'postMessage';
+		$wp_customize->get_setting( 'tag_manager_id' )->transport = 'postMessage';
 
 
 		// Tablet Menu Field

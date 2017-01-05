@@ -25,7 +25,6 @@ class iGrow_Macon_Themehooks {
 		add_action( 'igrowmacon_header_top', 			array( $this, 'site_branding_begin' ), 15 );
 
 		add_action( 'igrowmacon_header_content', 		array( $this, 'title_site' ), 10 );
-		//add_action( 'igrowmacon_header_content', 		array( $this, 'site_description' ), 15 );
 
 		add_action( 'igrowmacon_header_bottom', 		array( $this, 'site_branding_end' ), 50 );
 		add_action( 'igrowmacon_header_bottom', 		array( $this, 'menu_toggles' ), 60 );
@@ -37,10 +36,8 @@ class iGrow_Macon_Themehooks {
 		add_action( 'igrowmacon_header_after', 			array( $this, 'menu_social' ) );
 		add_action( 'igrowmacon_header_after', 			array( $this, 'contact_bar_end' ) );
 		
-		add_action( 'igrowmacon_content_before', 		array( $this, 'slider_home' ) );
-		add_action( 'igrowmacon_content_before', 		array( $this, 'slider_home_b2b' ) );
+		add_action( 'igrowmacon_content_before', 		array( $this, 'sliders' ) );
 		add_action( 'igrowmacon_content_before', 		array( $this, 'featured_image' ) );
-		//add_action( 'igrowmacon_content_before', 		array( $this, 'coin_flips' ) );
 
 		add_action( 'igrowmacon_body_top', 				array( $this, 'analytics_code' ), 10 );
 		add_action( 'igrowmacon_body_top', 				array( $this, 'skip_link' ), 20 );
@@ -63,7 +60,6 @@ class iGrow_Macon_Themehooks {
 		add_action( 'igrowmacon_entry_footer_content', 	array( $this, 'entry_comments_links' ), 20 );
 		add_action( 'igrowmacon_entry_footer_content', 	array( $this, 'entry_edit_link' ), 25 );
 
-		add_action( 'igrowmacon_entry_after', 			array( $this, 'authorbox' ), 5 );
 		add_action( 'igrowmacon_entry_after', 			array( $this, 'comments' ), 10 );
 
 		add_action( 'igrowmacon_while_after', 			array( $this, 'posts_nav' ) );
@@ -116,41 +112,21 @@ class iGrow_Macon_Themehooks {
 	 */
 	public function analytics_code() {
 
-		$tag = get_theme_mod( 'tag_manager' );
+		$tag_id = get_theme_mod( 'tag_manager_id' );
 
-		if ( empty( $tag ) ) { return; }
+		if ( empty( $tag_id ) ) { return; }
 
 		echo '<!-- Google Tag Manager -->';
-		echo $tag;
+		echo '<noscript><iframe src="//www.googletagmanager.com/ns.html?id=' . $tag_id . '?>"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':
+new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
+\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,\'script\',\'dataLayer\',\'' . $tag_id . '\');</script>';
 		echo '<!-- Google Tag Manager -->';
 
 	} // analytics_code()
-
-	/**
-	 * Adds the authorbox action hook.
-	 *
-	 * @hooked 		igrowmacon_entry_after 		5
-	 */
-	public function authorbox() {
-
-		global $authordata;
-
-		/**
-		 * The igrowmacon_authorbox action hook.
-		 * See the class-authorbox.php file for hooked functions.
-		 *
-		 * @hooked 		wrap_begin 		5
-		 * @hooked 		avatar 			15
-		 * @hooked 		name 			25
-		 * @hooked 		bio 			35
-		 * @hooked 		posts_link 		45
-		 * @hooked 		social_links 	55
-		 * @hooked 		wrap_end 		95
-		 * @param 		obj 			$authordata 		The current author's DB object.
-		 */
-		do_action( 'igrowmacon_authorbox', $authordata );
-
-	} // authorbox()
 
 	/**
 	 * Returns the appropriate breadcrumbs.
@@ -162,7 +138,11 @@ class iGrow_Macon_Themehooks {
 	public function breadcrumbs() {
 
 		if ( is_front_page() ) { return; }
-
+		
+		$meta = get_post_custom();
+		
+		if ( ! empty( $meta['hide-breadcrumbs'][0] ) ) { return; }
+		
 		?><div class="breadcrumbs">
 			<div class="wrap-crumbs"><?php
 
@@ -228,46 +208,6 @@ class iGrow_Macon_Themehooks {
 		
 	} // coin_flips()
 	
-	public function coin_flips_footer() {
-		
-		if ( is_home() ) { return; }
-		
-		$circles[] = array( 'pram', 'For expectant moms and families of children birth to 5 years old' );
-		$circles[] = array( 'house', 'One-on-One Home Visits' );
-		$circles[] = array( 'blocks', 'Focuses on Parent-Child Relationship' );
-		$circles[] = array( 'family', 'Promotes Healthy Children and Families' );
-		$circles[] = array( 'brain', 'Developmental Screening' );
-		$circles[] = array( 'handandheart', 'Connection to Additional Resources' );
-
-		?><div class="igrow-coins-footer">
-			<ul class="coin-list"><?php
-
-			foreach ( $circles as $circle ) {
-
-				?><li class="single-coin home-circle">
-					<div class="coin-wrap">
-						<div class="coin-side coin-front"><?php 
-						
-							igrowmacon_the_svg( $circle[0] ); 
-							
-						?></div>
-						<div class="coin-side coin-back">
-							<span class="coin-text"><?php 
-						
-								esc_html_e( $circle[1], 'igrow-illinois' ); 
-								
-							?></span>
-						</div>
-					</div>
-				</li><?php
-
-			}
-
-			?></ul>
-		</div><?php
-		
-	} // coin_flips_footer()
-
 	/**
 	 * The comments markup
 	 *
@@ -417,7 +357,10 @@ class iGrow_Macon_Themehooks {
 	public function featured_image() {
 		
 		if ( is_front_page() ) { return; }
-		if ( is_page( 'how-we-work' ) ) { return; }
+		
+		$meta = get_post_custom();
+		
+		if ( isset( $meta['select-slider'][0] ) || ! empty( $meta['select-slider'][0] ) ) { return; }
 		
 		?><div class="featured-image"></div><?php
 		
@@ -865,31 +808,20 @@ class iGrow_Macon_Themehooks {
 	} // skip_link()
 	
 	/**
-	 * Displays the "home" slider.
-	 * @return 		mixed 		The home slider markup.
+	 * Displays a Soliloquy slider, if one is chosen in the Header metabox.
+	 * @return 		mixed 		The slider markup.
 	 */
-	public function slider_home() {
+	public function sliders() {
 		
-		if ( ! is_front_page() ) { return; }	
+		$meta = get_post_custom();
+		
+		if ( ! isset( $meta['select-slider'][0] ) || empty( $meta['select-slider'][0] ) ) { return; }
 		if ( ! function_exists( 'soliloquy' ) ) { return; }
 		
-		soliloquy( 'home', 'slug' );
+		soliloquy( $meta['select-slider'][0] );
 		
-	} // slider_home()
-	
-	/**
-	 * Displays the "home" slider for the B2B home page.
-	 * @return 		mixed 		The home B2B slider markup.
-	 */
-	public function slider_home_b2b() {
+	} // sliders()
 		
-		if ( ! is_page( 'how-we-work' ) ) { return; }	
-		if ( ! function_exists( 'soliloquy' ) ) { return; }
-		
-		soliloquy( 'home-b2b', 'slug' );
-		
-	} // slider_home_b2b()
-	
 	/**
 	 * Adds the stripes bar for mobile.
 	 * @return 		mixed 		The stripes bar markup.

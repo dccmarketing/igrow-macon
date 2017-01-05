@@ -292,6 +292,15 @@ class iGrow_Macon_Field {
 		$default['error'] 		= __( '', 'igrow-macon' );
 		$default['label'] 		= __( '', 'igrow-macon' );
 		$default['type']		= $this->props['type'];
+		
+		/**
+		 * Checkboxes default to being checked.
+		 */
+		if ( 'checkbox' === $this->props['type'] ) {
+
+			$default['checked'] = 1;
+
+		}
 
 		if ( 'editor' === $this->props['type'] ) {
 
@@ -568,10 +577,10 @@ class iGrow_Macon_Field {
 	protected function output_field() {
 
 		if ( 'checkbox' === $this->type ) {
-
+			
 			?><input <?php
-				checked( 1, $this->atts['value'], true );
-				echo $this->print_attributes( $atts );
+				checked( 1, $this->props['checked'], true );
+				echo $this->print_attributes( $this->atts );
 			?> /><?php
 
 		} elseif ( 'editor' === $this->type ) {
@@ -740,13 +749,18 @@ class iGrow_Macon_Field {
 	protected function set_properties( $props ) {
 
 		$defaults 		= $this->get_default_properties();
+		
+		//echo '<pre>'; print_r( $defaults ); echo '</pre>';
+		
 		$this->props 	= wp_parse_args( $props, $defaults );
+		
+		//echo '<pre>'; print_r( $this->props ); echo '</pre>';
 
 		foreach ( $this->props as $key => $prop ) {
 
 			if ( ! array_key_exists( $key, $defaults ) ) { unset( $this->props[$key] ); }
-
-			if ( empty( $prop ) && 'type' !== $key ) { unset( $this->props[$key] ); }
+			if ( 'checked' === $key ) { continue; }			
+			if ( ( empty( $prop ) && 'type' !== $key ) ) { unset( $this->props[$key] ); }
 
 		}
 
