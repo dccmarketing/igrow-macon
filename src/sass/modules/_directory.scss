@@ -1,49 +1,27 @@
-.wpbdp-listing {
-	a {
-		border-bottom	: none !important;
-		color			: $red !important;
-	}
-
-	.listing-actions {
-		display: none !important;
+.business-directory {
+	background-color: $light;
+	
+	.contact-bar {
+		background-color: $red;
 	}
 	
-	.listing-details {
-		margin-left: 0 !important;
+	.nav-primary,
+	.featured-image {
+		display: none;
 	}
 	
-	.listing-title {
-		border-bottom-color: $orange !important;
-		
-		a,
-		h2 {
-			border-bottom	: none;
-			color			: $red !important;
-		}
+	.nav-toggles-item {
+		background-color: transparent !important;
 	}
-}
-
-.wpbdp-main-box {
-	background: $cream !important;
 	
-	[type="submit"],
-	[type=button] {
-		@include resetbutton( $light );
-		
-		background	: $orange !important;
-		border-color: $light !important;
-		color 		: $light !important;
-		padding 	: .6em 1em .4em;
+	.nav-toggles-item-link-first {
+		color: $teal !important;
 	}
-}
-
-.wpbdp-listing-excerpt {
-	&.odd {
-		background: $cream !important;
+	
+	.nav-toggles-item-link-last {
+		color: $orange !important;
 	}
-}	
-
-.page-template-page_B2B {
+	
 	.wpbdp-main-box {
 		background: $teal !important;
 		
@@ -63,8 +41,46 @@
 	}
 
 	.wpbdp-listing-excerpt {
+		padding: 0;
+		
 		&.odd {
-			background: $teal !important;
+			background: $light !important;
 		}
-	}	
+	}
+	
+	.igrow-coins {
+		background-color: $yellow;
+	}
+}
+
+.wpbdp-listing {
+	
+	a {
+		border-bottom	: none !important;
+		color			: $teal !important;
+	}
+
+	.listing-actions {
+		display: none !important;
+	}
+	
+	.listing-details {
+		margin-left: 0 !important;
+	}
+	
+	.listing-title {
+		background-color	: $red !important;
+		border-bottom-color : $red !important;
+		
+		a,
+		h2 {
+			border-bottom	: none;
+			color			: $light !important;
+			padding 		: 0.5em;
+		}
+	}
+	
+	.excerpt-content {
+		padding: 0.5em;
+	}
 }

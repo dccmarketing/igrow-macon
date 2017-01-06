@@ -137,8 +137,6 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 	 */
 	public function breadcrumbs() {
 
-		if ( is_front_page() ) { return; }
-		
 		$meta = get_post_custom();
 		
 		if ( ! empty( $meta['hide-breadcrumbs'][0] ) ) { return; }

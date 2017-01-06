@@ -48,7 +48,6 @@
 
 	@for $i from 1 through 6 {
 		&:nth-child(#{$i}) {
-			//color 		: nth( $colors, $i );
 			border-color: nth( $colors, $i );
 
 			svg {
@@ -57,9 +56,9 @@
 		}
 	}
 	
-	.page-template-page_B2B & {
+	.page-template-page_B2B &,
+	.business-directory & {
 		&:nth-child(3) {
-			//color 		: nth( $colors, $i );
 			border-color: $darkmed;
 
 			svg {
