@@ -32,7 +32,6 @@ class iGrow_Macon_Themehooks {
 		add_action( 'igrowmacon_header_bottom', 		array( $this, 'menu_primary' ), 95 );
 		
 		add_action( 'igrowmacon_header_after', 			array( $this, 'contact_bar_begin' ) );
-		add_action( 'igrowmacon_header_after', 			array( $this, 'phone_button' ) );
 		add_action( 'igrowmacon_header_after', 			array( $this, 'menu_social' ) );
 		add_action( 'igrowmacon_header_after', 			array( $this, 'contact_bar_end' ) );
 		
@@ -660,23 +659,6 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		
 	} // menu_toggles()
 	
-	/**
-	 * Displays a linked phone number.
-	 * 
-	 * @return [type] [description]
-	 */
-	public function phone_button() {
-		
-		$text = get_theme_mod( 'btn_phone_text' );
-		
-		if ( empty( $text ) ) { return; }
-		
-		?><div class="btn-phone">
-			<span class="btn-phone-text"><?php echo esc_html( $text ); ?></span>
-		</div><?php
-		
-	} // phone_button()
-
 	/**
 	 * Adds the posted_on post meta.
 	 *

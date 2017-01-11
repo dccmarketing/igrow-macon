@@ -299,56 +299,7 @@ class iGrow_Macon_Customizer {
 		
 		
 		
-		// Call Button Text Field
-		$wp_customize->add_setting(
-			'btn_phone_text',
-			array(
-				'capability' 		=> 'edit_theme_options',
-				'default'  			=> '',
-				'sanitize_callback' => 'sanitize_text_field',
-				'transport' 		=> 'postMessage',
-				'type' 				=> 'theme_mod'
-			)
-		);
-		$wp_customize->add_control(
-			'btn_phone_text',
-			array(
-				'active_callback' 	=> '',
-				'description' 		=> esc_html__( '', 'igrow-macon' ),
-				'label'  			=> esc_html__( 'Call Button Text', 'igrow-macon' ),
-				'priority' 			=> 10,
-				'section'  			=> 'theme_settings',
-				'settings' 			=> 'btn_phone_text',
-				'type' 				=> 'text'
-			)
-		);
-		$wp_customize->get_setting( 'btn_phone_text' )->transport = 'postMessage';
-		
-		// Hide Phone Number Field
-		$wp_customize->add_setting(
-			'hide_phone_number',
-			array(
-				'capability' 		=> 'edit_theme_options',
-				'default'  			=> '',
-				'sanitize_callback' => 'absint',
-				'transport' 		=> 'postMessage',
-				'type' 				=> 'theme_mod'
-			)
-		);
-		$wp_customize->add_control(
-			'hide_phone_number',
-			array(
-				'active_callback' 	=> '',
-				'description' 		=> esc_html__( 'Hides the phone number on the phone buttn and only displays the Call Button Text.', 'igrow-macon' ),
-				'label'  			=> esc_html__( 'Hide Phone Number', 'igrow-macon' ),
-				'priority' 			=> 10,
-				'section'  			=> 'theme_settings',
-				'settings' 			=> 'hide_phone_number',
-				'type' 				=> 'checkbox'
-			)
-		);
-		$wp_customize->get_setting( 'hide_phone_number' )->transport = 'postMessage';
-		
+
 		// Default Header Image Field
 		$wp_customize->add_setting(
 			'default_header_image' ,

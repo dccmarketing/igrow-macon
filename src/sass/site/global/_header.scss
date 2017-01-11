@@ -28,7 +28,7 @@
 
 .site-branding {
 	
-	@include phone-down {
+	@include tablet-down {
 		margin	: 0 auto;
 		order	: 2;
 	}
@@ -67,14 +67,6 @@
 	.page-template-page_B2B & {
 		background-color: $orange;
 	}
-}
-
-.btn-phone {
-	@include phone-down {
-		display: none;
-	}
-	
-	font-size 		: 1.25em;
 }
 
 .featured-image {

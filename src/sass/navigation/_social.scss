@@ -1,10 +1,10 @@
 .social-menu-items {
 	@include resetlist();
+	display		: flex;
+	align-items	: center;
 }
 
 .social-menu-item {
-	display 	: inline-block;
-	line-height : 1.5;
 	margin 		: 0 0.5em;
 	position 	: relative;
 	
@@ -13,10 +13,17 @@
 		height 	: $font__size-social;
 		width 	: $font__size-social;
 	}
+	
+	&.contact-us {
+		@include phone-down {
+			display: none;
+		}
+	}
 }
 
 .social-menu-item-link {
-	color 	: $light;
-	display	: block;
-	padding	: 0.5em;
+	@include unline( $light );
+	display		: block;
+	font-size	: 1.25em;
+	padding		: 0.5em;
 }
