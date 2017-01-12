@@ -2,7 +2,15 @@
 	background-color: $light;
 	
 	.contact-bar {
-		background-color: $red;
+		background-color: $yeller;
+	}
+	
+	.social-menu-item-link {
+		color: $dark;
+		
+		svg {
+			fill: $dark;
+		}
 	}
 	
 	.nav-primary {
@@ -22,21 +30,25 @@
 	}
 	
 	.wpbdp-main-box {
-		background: $teal !important;
+		background: $yeller !important;
+	}
+	
+	[type="submit"],
+	[type=button] {
+		@include resetbutton( $light );
 		
-		[type="submit"],
-		[type=button] {
-			@include resetbutton( $light );
-			
-			background	: $cream !important;
-			border-color: $red !important;
-			color 		: $red !important;
-			padding 	: .6em 1em .4em;
-		}
+		background	: $dark !important;
+		border-color: $dark !important;
+		color 		: $yeller !important;
+		padding 	: .6em 1em .4em;
+	}
+	
+	input {
+		border-color: $dark;
 	}
 	
 	.advanced-search-link {
-		color: $cream;
+		color: $dark;
 	}
 
 	.wpbdp-listing-excerpt {
