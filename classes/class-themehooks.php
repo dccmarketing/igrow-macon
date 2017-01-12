@@ -101,7 +101,7 @@ class iGrow_Macon_Themehooks {
 		get_search_form();
 
 	} // add_search()
-
+	
 	/**
 	 * Inserts Google Tag manager code after body tag
 	 *
@@ -357,7 +357,7 @@ j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
 		
 		$meta = get_post_custom();
 		
-		if ( isset( $meta['select-slider'][0] ) || ! empty( $meta['select-slider'][0] ) ) { return; }
+		if ( isset( $meta['select-slider'][0] ) && ! empty( $meta['select-slider'][0] ) ) { return; }
 		
 		?><div class="featured-image"></div><?php
 		

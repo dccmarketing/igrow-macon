@@ -75,4 +75,12 @@
 	background-size		: cover;
 	border-bottom 		: 5px solid $orange;
 	height 				: 250px;
+	
+	.page-template-page_B2B & {
+		border-bottom-color: $teal;
+	}
+	
+	.page-template-page_directory & {
+		border-bottom-color: $red;
+	}
 }
